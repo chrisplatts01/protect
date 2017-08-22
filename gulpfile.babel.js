@@ -123,11 +123,6 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      // './app/scripts/vendor/jquery/jquery-3.2.1.js',
-      // './app/scripts/vendor/jquery/jquery-ui.js',
-      // './app/scripts/vendor/furf/jquery.ui.touch-punch.js',
-      // './app/scripts/vendor/vast/jquery.popupoverlay.js',
-      // './app/scripts/vendor/parsley/parsley.js',
       './app/scripts/wsk.js',
       './app/scripts/main.js'
     ])

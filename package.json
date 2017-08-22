@@ -54,12 +54,10 @@
     "bourbon-bitters": "^1.2.1",
     "bourbon-neat": "^1.9.0",
     "foundation-sites": "^6.4.1",
-    "html5-form-validation": "^1.5.3",
+    "jquery": "^3.2.1",
     "jquery-form-validator": "^2.3.73",
     "jquery-validation": "^1.17.0",
-    "kendo-ui-core": "^2017.2.621",
     "nunjucks-includeData": "^0.0.9",
-    "parsleyjs": "^2.7.2",
     "webfontloader": "^1.6.28"
   }
 }
