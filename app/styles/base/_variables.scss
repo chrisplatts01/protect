@@ -36,7 +36,8 @@ $page-footer-height-mobile: 240px;
 
 // Colors
 $green: #00ac98;
-$blue: #002454;
+// $blue: #002454;
+$blue: #10529b;
 $light-blue: #0064d2;
 $light-blue-shadow: #004693;
 $red: #fc5c7a;
@@ -54,9 +55,9 @@ $brand-tertiary: $light-blue;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$heading-font-color: $brand-secondary;
+$heading-font-color: $black;
 $alt-font-color: $brand-secondary;
-$action-color: $green;
+$action-color: $blue;
 $dark-text-color: #00786a;
 
 // Other colors

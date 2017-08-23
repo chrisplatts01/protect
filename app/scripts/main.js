@@ -25,13 +25,13 @@ jQuery.noConflict();
     // Handle form validation - submit button disabled until all fields valid
     // -------------------------------------------------------------------------
     var checkIfValid = function() {
-      var $t4tbForm = $('#t4tb');
+      var $mhqForm = $('#mhq-form');
       var $submitButton;
       var isValid = true;
 
-      if ($t4tbForm.length) {
-        $submitButton = $t4tbForm.find('.button--next');
-        isValid = $t4tbForm.valid();
+      if ($mhqForm.length) {
+        $submitButton = $mhqForm.find('.button--next');
+        isValid = $mhqForm.valid();
 
         if (isValid) {
           $submitButton.removeClass('disabled');
@@ -41,7 +41,7 @@ jQuery.noConflict();
       }
     };
 
-    var validator = $('#t4tb').validate({
+    var validator = $('#mhq-form').validate({
       errorPlacement: function(error, element) {
         error.appendTo(element.parent('.form-field'));
       },
@@ -329,15 +329,15 @@ jQuery.noConflict();
   // Handle psotcode lookup results - assumes last 2 array elements are town
   // and postcode and there are no more than 3 other address fields.
   // ---------------------------------------------------------------------------
-  $('#t4tb').find('#address-list').on('change', function() {
+  $('#mhq-form').find('#address-list').on('change', function() {
     var address = $(this).val().split(',');
 
-    $('#t4tb').find('input[type=text]').val('');
+    $('#mhq-form').find('input[type=text]').val('');
     for (var i = 0; i <= Math.min(address.length-3, 2); i++) {
-      $('#t4tb').find('#address-' + (i+1)).val(address[i]);
+      $('#mhq-form').find('#address-' + (i+1)).val(address[i]);
     }
-    $('#t4tb').find('#town').val(address[address.length-2]);
-    $('#t4tb').find('#postcode').val(address[address.length-1]);
+    $('#mhq-form').find('#town').val(address[address.length-2]);
+    $('#mhq-form').find('#postcode').val(address[address.length-1]);
   });
 
   // -------------------------------------------------------------------------

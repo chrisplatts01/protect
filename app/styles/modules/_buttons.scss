@@ -6,7 +6,7 @@ input[type='submit'],
 input[type='reset'],
 input[type='button'] {
   appearance: none;
-  background-color: $action-color;
+  background-color: $brand-primary;
   border: 0;
   border-radius: $base-border-radius;
   color: #fff !important;
@@ -25,13 +25,13 @@ input[type='button'] {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  border-bottom: 4px solid shade($action-color, 30%);
+  border-bottom: 4px solid shade($brand-primary, 30%);
   width: 224px;
   height: 44px;
 
   &:hover,
   &:focus {
-    background-color: shade($action-color, 20%);
+    background-color: shade($brand-primary, 20%);
     color: #fff;
     text-decoration: none;
   }

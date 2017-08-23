@@ -111,8 +111,8 @@ input[type='radio'] + label:before {
 }
 
 input[type='radio']:checked + label:before {
-  background-color: $brand-primary;
-  border-color: $brand-primary;
+  background-color: $brand-secondary;
+  border-color: $brand-secondary;
 }
 
 // Checkboxe fields (label follows)
@@ -145,8 +145,8 @@ input[type='checkbox'] + label:before {
 }
 
 input[type='checkbox']:checked + label:before {
-  background: url('/images/green-tick-icon.svg') center center no-repeat;
-  border-color: $brand-primary;
+  background: url('/images/blue-tick-icon.svg') center center no-repeat;
+  border-color: $brand-secondary;
 }
 
 // Field containers
@@ -215,6 +215,15 @@ input[type='checkbox']:checked + label:before {
 
 .form-field--slider {
   padding: 0 $base-spacing $base-spacing;
+}
+
+.form-skip {
+  padding-top: $base-spacing;
+
+  &:after {
+    content: '\2002>';
+    color: $brand-secondary;
+  }
 }
 
 .form-actions {

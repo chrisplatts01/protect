@@ -1,0 +1,28 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1>Introduction</h1>
+      <p>We are interested in knowing more about the stresses and strains of life and your mental health. Some of the questions are sensitive and may be difficult to answer.</p>
+      <p>Please try to give the most accurate answers possible, but do not worry if you cannot answer a question &ndash; you can always answer 'prefer not to answer' and move on.</p>
+      <p>Information on where to find help for the issues in this questionnaire will be shown at the end of the questionnaire or can be found on the <a href="#">MIND website</a>.</p>
+      {% call form.form('mhq-form', '/', 'mhq-2.html', 'Go back', 'Begin') %}
+      {% endcall %}
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+  </section>
+{% endblock %}

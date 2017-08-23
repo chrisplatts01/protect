@@ -12,64 +12,14 @@
     }
   }
 
-  .t4tb-logo {
+  .site-logo {
     width: 100%;
     max-width: 340px;
-    padding: 18px 0 4px;
+    padding: 21px 0 25px;
 
-    @include breakpoint(large) {
-      padding: 22px 0 26px;
-    }
-  }
-
-  .user-info {
-    color: $white;
-    font-size: $small-font-size;
-    line-height: $small-line-height;
-    padding: 0 0 16px;
-
-    @include breakpoint(large) {
-      padding-top: 18px;
-    }
-  }
-
-}
-
-#user-status {
-  display: none;
-  z-index: 1000;
-  position: absolute;
-  top: 80px;
-  left: 0;
-  right: 0;
-  background-color: $brand-primary;
-  color: $white;
-  height: 150px;
-  padding: 0 $base-spacing;
-
-  .wrapper {
-    padding: 0 $base-spacing;
-  }
-
-  .user-status_name {
-    padding: $base-spacing 0;
-  }
-
-  .user-status_actions {
-    border-top: 1px solid $white;
-    padding: $small-spacing 0;
-  }
-
-  h2 {
-    color: $white;
-    // font-size: 20px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .user-status_actions {
-    @include breakpoint(large) {
-      @include flexbox($justify-content: space-between);
+    img {
+      width: auto;
+      height: 32px
     }
   }
 }

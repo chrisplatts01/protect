@@ -1,7 +1,8 @@
 {% import "macros/timer.njk" as timer %}
 
 {% macro header(
-    title = "SECTION_TITLE",
+    title = "TITLE",
+    subtitle = "SUBTITLE",
     show_progress_header = true,
     show_progress_bar = true,
     show_progress_steps = true,
@@ -15,6 +16,7 @@
 <header>
   <div class="section-title  {% if bg_color %}{{ bg_color }}{% endif %}">
     <div class="wrapper">
+      <h2>{{ subtitle }}</h2>
       <h1>{{ title }}</h1>
     </div>
   </div>
@@ -36,6 +38,7 @@
   {% if show_progress_bar %}
   <div class="progress-bar">
     <div class="wrapper">
+      <div class="progress-text">{{ step / steps * 100 }}% completed</div>
       <div class="progress-total"></div>
       <div class="progress-done" style="width: {{ step / steps * 100 }}%"></div>
     </div>

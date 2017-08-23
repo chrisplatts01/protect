@@ -8,8 +8,8 @@ Form: Basic skeleton for T4TB form with
 {% import "macros/timer.njk" as timer %}
 
 {% macro form(
-    id = "t4tb",
-    previous = "",
+    id = "protect-form",
+    previous = "#",
     next = "#",
     previous_label = "Go back",
     next_label = "Continue"
@@ -370,7 +370,22 @@ Field: Input field as JQuery UI Slider
 
 {#
 ========================================
-Field actions: Form submit/back buttons
+Form skip: Skip this stage
+========================================
+#}
+{% macro skip(
+    next = "#",
+    label = "Skip this step"
+  )
+%}
+<div class="form-skip">
+  <a class="form-skip_link" href="{{ next }}">{{ label }}</a>
+</div>
+{% endmacro %}
+
+{#
+========================================
+Form actions: Form submit/back buttons
 ========================================
 #}
 {% macro actions(
