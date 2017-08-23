@@ -36,16 +36,20 @@ $page-footer-height-mobile: 240px;
 
 // Colors
 $green: #00ac98;
-// $blue: #002454;
-$blue: #10529b;
-$light-blue: #0064d2;
-$light-blue-shadow: #004693;
-$red: #fc5c7a;
+$dark-green: #00796b;
+$blue: #004c9c;
+$light-blue: #0071e9;
+$light-blue-shadow: $blue;
+$pale-blue: #d9e4f0;
+$red: #ec004c;
+$dark-red: #b9003c;
 
 $white: #fff;
-$light-gray: #f3f0ee;
-$mid-gray: #ccc1ba;
-$dark-gray: #756661;
+$vlight-gray: #efefef;
+$light-gray: #d8d8d8;
+$mid-gray: #b2b2b2;
+$dark-gray: #4c4c4c;
+$vdark-gray: #191919;
 $black: #000;
 
 // Brand colors
@@ -59,6 +63,14 @@ $heading-font-color: $black;
 $alt-font-color: $brand-secondary;
 $action-color: $blue;
 $dark-text-color: #00786a;
+
+// Message colors
+$message-info-color: $white;
+$message-info-bg-color: $green;
+$message-warning-color: $white;
+$message-warning-bg-color: $blue;
+$message-error-color: $white;
+$message-error-bg-color: $red;
 
 // Other colors
 $base-border-color: $light-gray;

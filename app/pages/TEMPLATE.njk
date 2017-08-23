@@ -17,7 +17,7 @@
       <h1 class="h2">HEADING</h1>
       <p>BODY_TEXT</p>
       {% call form.form('mhq-form', 'PREVIOUS.html', 'NEXT.html', 'Go back', 'Continue') %}
-        {{ form.skip('NEXT.html', 'Prefer not to say') }}
+        {{ form.skip_page('NEXT.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

@@ -14,10 +14,10 @@
     }}
 
     <article>
-      <h1 class="h2">In your life have you suffered from a period of mental distress that prevented you from doing your usual activities?</h1>
-      {% call form.form('mhq-form', 'mhq-1.html', 'mhq-3.html', 'Go back', 'Continue') %}
-        {{ form.radios('mental-stress', '', ['Yes', 'No', 'I don\'t know'], required=true) }}
-        {{ form.skip_page('mhq-3.html', 'Prefer not to say') }}
+      <h1 class="h2">Have you or someone else been injured as a result of your drinking?</h1>
+      {% call form.form('mhq-form', 'mhq-4a.html', 'mhq-5a.html', 'Go back', 'Continue') %}
+        {{ form.radios('depression-interfering', '', ['No', 'Yes, but not in the last year', 'Yes, during the last year'], required=true) }}
+        {{ form.skip_page('mhq-5a.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

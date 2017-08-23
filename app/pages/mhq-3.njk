@@ -24,7 +24,7 @@
         </fieldset>
         {{ form.radio('diagnosis', 'No', required) }}
         {{ form.radio('diagnosis', 'Do not know', required) }}
-        {{ form.skip('mhq-4.html', 'Prefer not to say') }}
+        {{ form.skip_page('mhq-4.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

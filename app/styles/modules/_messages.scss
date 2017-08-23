@@ -1,0 +1,20 @@
+.message {
+  font-size: $small-font-size;
+  padding: 0 8px;
+  border-radius: $base-border-radius;
+
+  &--info {
+    background-color: $message-info-bg-color;
+    color: $message-info-color;
+  }
+
+  &--warning {
+    background-color: $message-warning-bg-color;
+    color: $message-warning-color;
+  }
+
+  &--error {
+    background-color: $message-error-bg-color;
+    color: $message-error-color
+  }
+}

@@ -84,6 +84,29 @@ input[type='button'] {
       overflow: visible;
     }
   }
+
+  &.button--fast-forward {
+    position: relative;
+    padding: 12px 24px 12px 12px;
+    width: 100%;
+    background-color: $pale-blue;
+    border-bottom-color: $blue;
+    color: $blue !important;
+
+    &:hover,
+    &:active {
+      background-color: shade($pale-blue, 10%)
+    }
+
+    &:after {
+      position: absolute;
+      content: " >>";
+      right: 24px;
+      top: 12px;
+      width: 12px;
+      overflow: visible;
+    }
+  }
 }
 
 .button-wrapper {

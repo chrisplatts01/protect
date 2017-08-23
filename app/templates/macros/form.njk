@@ -22,12 +22,12 @@ Form: Basic skeleton for T4TB form with
     <br>The errors have been highlighted below.</p>
   </div>
 #}
-  {{ caller() }}
+{{ caller() }}
 
-  <div class="form-actions">
-    {% if previous %}<a class="button button--back secondary" href="{{ previous }}">{{ previous_label }}</a>{% endif %}
-    <button class="button button--next" type="submit">{{ next_label }}</button>
-  </div>
+<div class="form-actions">
+  {% if previous %}<a class="button button--back secondary" href="{{ previous }}">{{ previous_label }}</a>{% endif %}
+  <button class="button button--next" type="submit">{{ next_label }}</button>
+</div>
 </form>
 {% endmacro %}
 
@@ -294,8 +294,8 @@ Field: Input field as JQuery UI Slider
     max = 10,
     step = 1,
     unit = "",
-    lower_guide = "",
-    upper_guide = "",
+    floor = "",
+    ceiling = "",
     required = "",
     validation = ""
   )
@@ -310,10 +310,10 @@ Field: Input field as JQuery UI Slider
           <div class="slider_label">{{ i }}{{ unit }}</div>
         {%- endfor %}
       </div>
-      {% if lower_guide or upper_guide %}
+      {% if floor or ceiling %}
       <div class="slider-guides">
-        <span>{{ lower_guide }}</span>
-        <span>{{ upper_guide }}</span>
+        <span>{{ floor }}</span>
+        <span>{{ ceiling }}</span>
       </div>
       {% endif %}
       <input id="{{ name }}" name="{{ name }}" type="text" data-type="slider" data-min="{{ min }}" data-max="{{ max }}" data-step="{{ step }}" {% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
@@ -328,30 +328,30 @@ Field: Input field as JQuery UI Slider
        (option list)
 ========================================
 #}
-{% macro slider_1(
+{% macro select_slider(
     name = "FIELD_NAME",
     label = "Choose an option",
     values = ["0", "1", "2", "3", "4", "5" ],
-    floor = "Least",
-    ceiling = "Most",
+    floor = "",
+    ceiling = "",
     required = "",
     validation = ""
   )
 %}
-<div class="form-field-group form-field-group--slider-1">
-  <div class="form-field form-field--slider-1">
+<div class="form-field-group form-field-group--select-slider">
+  <div class="form-field form-field--select-slider">
     <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
-    <div class="slider-1">
-      <div class="slider-1_fill"></div>
+    <div class="select-slider">
+      <div class="select-slider_fill"></div>
 
-      <div class="slider-1_values">
+      <div class="select-slider_values">
         {% for value in values -%}
-          <div class="slider-1_value">{{ value }}</div>
+          <div class="select-slider_value">{{ value }}</div>
         {%- endfor %}
       </div>
 
       {% if floor or span %}
-      <div class="slider-1_labels">
+      <div class="select-slider_labels">
         <span>{{ floor }}</span>
         <span>{{ ceiling }}</span>
       </div>
@@ -370,16 +370,31 @@ Field: Input field as JQuery UI Slider
 
 {#
 ========================================
-Form skip: Skip this stage
+Form skip page: Skip this page
 ========================================
 #}
-{% macro skip(
+{% macro skip_page(
     next = "#",
     label = "Skip this step"
   )
 %}
-<div class="form-skip">
-  <a class="form-skip_link" href="{{ next }}">{{ label }}</a>
+<div class="form-skip-page">
+  <a class="form-skip-page_link" href="{{ next }}">{{ label }}</a>
+</div>
+{% endmacro %}
+
+{#
+========================================
+Form skip section: Skip this section
+========================================
+#}
+{% macro skip_section(
+    next = "#",
+    label = "Skip rest of this section"
+  )
+%}
+<div class="form-skip-section">
+  <a class="button button--fast-forward" href="{{ next }}">{{ label }}</a>
 </div>
 {% endmacro %}
 

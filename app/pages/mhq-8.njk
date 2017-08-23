@@ -14,10 +14,11 @@
     }}
 
     <article>
-      <h1 class="h2">In your life have you suffered from a period of mental distress that prevented you from doing your usual activities?</h1>
-      {% call form.form('mhq-form', 'mhq-1.html', 'mhq-3.html', 'Go back', 'Continue') %}
-        {{ form.radios('mental-stress', '', ['Yes', 'No', 'I don\'t know'], required=true) }}
-        {{ form.skip_page('mhq-3.html', 'Prefer not to say') }}
+      <h1 class="h2">Managing household finances (e.g. paying bills, balancing household expenses) - self- performance rating.</h1>
+      {% call form.form('mhq-form', 'mhq-7.html', 'mhq-9.html', 'Go back', 'Continue') %}
+        {{ form.checkbox('not-managing-household', 'Activity did not occur') }}
+        {{ form.select_slider('managing-household', '', ['On my own', 'With some help', 'With full help', 'Done by others']) }}
+        {{ form.skip_page('mhq-9.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

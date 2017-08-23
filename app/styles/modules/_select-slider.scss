@@ -1,4 +1,4 @@
-.slider-1 {
+.select-slider {
   @include clearfix;
   position: relative;
   width: 90%;
@@ -6,7 +6,7 @@
   background-color: $light-gray;
   box-shadow: 0 1px 3px $mid-gray inset;
 
-  .slider-1_fill {
+  .select-slider_fill {
     position: absolute;
     top: 0;
     left: 0;
@@ -23,10 +23,10 @@
   }
 }
 
-.slider-1_values {
+.select-slider_values {
   margin: $base-spacing 0 0 0;
 
-  .slider-1_value {
+  .select-slider_value {
     display: inline-block;
     width: auto;
     text-align: center;
@@ -38,7 +38,7 @@
   }
 }
 
-.slider-1_labels {
+.select-slider_labels {
   @include flexbox($justify-content: space-between);
   margin-left: -5%;
   margin-right: -5%;

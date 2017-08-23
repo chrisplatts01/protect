@@ -109,7 +109,7 @@ jQuery.noConflict();
       $this.slider('option', 'max', max);
       $this.slider('option', 'step', step);
       $this.slider('option', 'range', false);
-      $this.slider('option', 'animate', 500);
+      $this.slider('option', 'animate', 100);
     },
     slide: function(event, ui) {
       var $this = $(this);
@@ -132,7 +132,7 @@ jQuery.noConflict();
   // ---------------------------------------------------------------------------
   // Handle JQuery UI Slider as option list
   // ---------------------------------------------------------------------------
-  var $slider = $('.slider-1').slider({
+  var $slider = $('.select-slider').slider({
     create: function(event, ui) {
       var $this = $(this);
       var $select = $this.find('select');
@@ -148,13 +148,13 @@ jQuery.noConflict();
       $this.slider('option', 'step', 1);
       $this.slider('option', 'value', parseInt(max / 2));
       $this.slider('option', 'range', false);
-      $this.slider('option', 'animate', 500);
+      $this.slider('option', 'animate', 100);
 
       $this
-        .find('.slider-1_values')
+        .find('.select-slider_values')
         .css({marginLeft: margin, marginRight: margin});
       $this
-        .find('.slider-1_value')
+        .find('.select-slider_value')
         .width(width);
     },
     slide: function(event, ui) {
@@ -168,14 +168,14 @@ jQuery.noConflict();
 
       $select.selectedIndex = value;
       $select.val(values[value]);
-      $this.find('.slider-1_fill').width(fill);
+      $this.find('.select-slider_fill').width(fill);
 
       // Force form validation
       checkIfValid();
     },
   });
 
-  $('.slider-1').find('select')
+  $('.select-slider').find('select')
     .on('change', function() {
       $slider.slider('value', this.selectedIndex);
     });

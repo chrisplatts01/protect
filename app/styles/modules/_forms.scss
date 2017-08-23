@@ -181,7 +181,7 @@ input[type='checkbox']:checked + label:before {
 // Form field types
 // -------------------------------------
 .form-field--slider,
-.form-field--slider-1 {
+.form-field--select-slider {
   padding-bottom: 32px;
 
   label {
@@ -217,13 +217,17 @@ input[type='checkbox']:checked + label:before {
   padding: 0 $base-spacing $base-spacing;
 }
 
-.form-skip {
+.form-skip-page {
   padding-top: $base-spacing;
 
   &:after {
     content: '\2002>';
     color: $brand-secondary;
   }
+}
+
+.form-skip-section {
+  padding-top: 0;
 }
 
 .form-actions {
