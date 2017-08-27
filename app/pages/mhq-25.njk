@@ -1,0 +1,29 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1 class="h2">Have you been diagnosed with one or more of the following mental health problems by a professional, even if you don’t have it currently? (check all that apply)</h1>
+      {% call form.form('mhq-form', 'mhq-24a.html', 'mhq-26.html', 'Go back', 'Continue') %}
+        {{ form.checkboxes('mental-health-problems', '', ['Depression', 'Mania, hypomania, bipolar or manic-depression', 'Anxiety, nerves or generalized anxiety disorder', 'Social anxiety or social phobia', 'Agoraphobia', 'Panic attacks', 'Obsessive compulsive disorder (OCD)']) }}
+        <hr>
+        {{ form.radios('no-mental-health-problems', '', ['None of the above', 'I don\'t know']) }}
+        {{ form.skip_page('mhq-26.html', 'Prefer not to say') }}
+      {% endcall %}
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+  </section>
+{% endblock %}

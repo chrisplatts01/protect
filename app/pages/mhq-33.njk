@@ -14,11 +14,11 @@
     }}
 
     <article>
-      <h1 class="h2">Think about your roles at the time of this episode, including study / employment, childcare and housework, leisure pursuits. How much did these problems interfere with your life or activities?</h1>
-      {% call form.form('mhq-form', 'mhq-09.html', 'mhq-11.html', 'Go back', 'Continue') %}
-        {{ form.checkbox('interfere-with-life-not known', 'Do not know') }}
-        {{ form.select_slider('interfere-with-life', '', ['Not at all', 'A little', 'Some', 'A lot']) }}
-        {{ form.skip_page('mhq-11.html', 'Prefer not to say') }}
+      <h1 class="h2">How many times have you harmed yourself?</h1>
+      {% call form.form('mhq-form', 'mhq-32.html', 'mhq-34.html', 'Go back', 'Continue') %}
+        {{ form.checkbox('harmed-self-not-known', 'Do not know') }}
+        {{ form.select_slider('harmed-self', '', ['1', '2', '3', '3+']) }}
+        {{ form.skip_page('mhq-34.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

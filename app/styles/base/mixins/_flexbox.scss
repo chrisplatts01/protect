@@ -5,11 +5,13 @@
     $flex-direction: row,
     $flex-wrap: wrap,
     $justify-content: space-around,
-    $align-items: start
+    $align-items: start,
+    $flex-basis: auto
   ) {
   display: $display;
   flex-direction: $flex-direction;
   flex-wrap: $flex-wrap;
   justify-content: $justify-content;
   align-items: $align-items;
+  flex-basis: $flex-basis;
 }

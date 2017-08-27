@@ -14,12 +14,12 @@
     }}
 
     <article>
-      <h1 class="h2">Have you or someone else been injured as a result of your drinking?</h1>
-      {% call form.form('mhq-form', 'mhq-5.html', 'mhq-6.html', 'Go back', 'Continue') %}
-        {{ form.radios('depression-interfering', '', ['No', 'Yes, but not in the last year', 'Yes, during the last year'], required=true) }}
-        {{ form.skip_page('mhq-6.html', 'Prefer not to say') }}
+      <h1 class="h2">About how many times in your lifetime did you see things in this manner?</h1>
+      {% call form.form('mhq-form', 'mhq-25.html', 'mhq-27.html', 'Go back', 'Continue') %}
+        {{ form.checkbox('how-many-times-not-known', 'Do not know') }}
+        {{ form.select_slider('how-many-times', '', ['', '1', '2-5', '6-10', '11-20', '20+']) }}
+        {{ form.skip_page('mhq-27.html', 'Prefer not to say') }}
       {% endcall %}
-      <p class='message message--info'>Questionnaire saved</p>
     </article>
 
     {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}

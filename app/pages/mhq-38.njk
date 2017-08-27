@@ -1,0 +1,28 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1 class="h2">Thinking of the two-week period in your life when your feelings of depression or loss of interest were worst...how much of the day did these feelings usually last?</h1>
+      {% call form.form('mhq-form', 'mhq-37.html', 'mhq-39.html', 'Go back', 'Continue') %}
+        {{ form.radios('how-much-of-day-did-feelings-last', '', ['Less than half of the day', 'About half of the day', 'Most of the day', 'All day long', 'Do not know'], required=true) }}
+        {{ form.skip_page('mhq-39.html', 'Prefer not to say') }}
+      {% endcall %}
+      {{ form.skip_section('#', 'Skip the rest of this section') }}
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+  </section>
+{% endblock %}

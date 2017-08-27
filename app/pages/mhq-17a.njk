@@ -14,10 +14,10 @@
     }}
 
     <article>
-      <h1 class="h2">Have you or someone else been injured as a result of your drinking?</h1>
-      {% call form.form('mhq-form', 'mhq-4a.html', 'mhq-5a.html', 'Go back', 'Continue') %}
-        {{ form.radios('depression-interfering', '', ['No', 'Yes, but not in the last year', 'Yes, during the last year'], required=true) }}
-        {{ form.skip_page('mhq-5a.html', 'Prefer not to say') }}
+      <h1 class="h2">Gender</h1>
+      {% call form.form('mhq-form', 'mhq-17.html', 'mhq-18.html', 'Go back', 'Continue') %}
+        {{ form.select_group('gender', '', ['Male', 'Female'], required=true) }}
+        {{ form.skip_page('mhq-17.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

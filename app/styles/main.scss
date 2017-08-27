@@ -43,8 +43,8 @@
 // Ideally these should be rolled imto a custom JQuery UI theme
 .slider span.ui-slider-handle {
   border-radius: 50% !important;
-  height: $base-spacing;
-  width: $base-spacing;
+  height: 32px;
+  width: 32px;
   outline: 0;
 }
 
@@ -58,16 +58,16 @@
 
 .select-slider span.ui-slider-handle {
   border-radius: 50% !important;
-  height: $base-spacing;
-  width: $base-spacing;
+  height: 32px;
+  width: 32px;
   outline: 0;
-  top: -4px;
+  top: -8px;
 }
 
 .select-slider span.ui-slider-handle:hover,
 .select-slider span.ui-slider-handle:focus,
 .select-slider span.ui-slider-handle:active {
-  border: 3px solid $brand-primary !important;
+  border: 1px solid $brand-primary !important;
   background-color: $white !important;
 }
 

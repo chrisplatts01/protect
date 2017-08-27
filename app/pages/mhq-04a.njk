@@ -16,9 +16,9 @@
     <article>
       <h1 class="h2">Thinking of the two-week period in your life when your feelings of depression or loss of interest were worst and thinking about your roles at the time of this episode, including study, employment, childcare and housework and leisure pursuits.</h1>
       <p class="h2">How much did these problems interfere with your life or activities?</p>
-      {% call form.form('mhq-form', 'mhq-3.html', 'mhq-4a.html', 'Go back', 'Continue') %}
-        {{ form.select_slider('depression-interfering', '', ['Do not know', 'Not at all', 'A little', 'Some', 'A lot'], required=true) }}
-        {{ form.skip_page('mhq-4a.html', 'Prefer not to say') }}
+      {% call form.form('mhq-form', 'mhq-04.html', 'mhq-05.html', 'Go back', 'Continue') %}
+        {{ form.radios('depression-interfering', '', ['Do not know', 'Not at all', 'A little', 'Some', 'A lot'], required=true) }}
+        {{ form.skip_page('mhq-05.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

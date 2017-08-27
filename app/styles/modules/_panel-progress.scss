@@ -5,7 +5,7 @@
     position: relative;
 
     .section-title {
-      background-color: $light-gray;
+      background-color: $vlight-gray;
 
       h1 {
         color: $dark-gray;
@@ -42,7 +42,7 @@
     .progress-header {
       @include clearfix;
       position: relative;
-      background-color: $light-gray;
+      background-color: $vlight-gray;
       padding: 0;
 
       hr {
@@ -107,7 +107,7 @@
         display: block;
         width: 100%;
         height: 16px;
-        background-color: $light-gray;
+        background-color: $vlight-gray;
         border-radius: $base-border-radius;
       }
 
@@ -171,7 +171,7 @@
 
   footer {
     position: relative;
-    background-color: $light-gray;
+    background-color: $vlight-gray;
     padding: $small-spacing 0;
 
     .footer-info {

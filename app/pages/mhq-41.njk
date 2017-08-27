@@ -14,11 +14,10 @@
     }}
 
     <article>
-      <h1 class="h2">How many times have you harmed yourself?</h1>
-      {% call form.form('mhq-form', 'mhq-5a.html', 'mhq-7.html', 'Go back', 'Continue') %}
-        {{ form.checkbox('harmed-self-not-known', 'Do not know') }}
-        {{ form.select_slider('harmed-self', '', ['0', '1', '2', '3+']) }}
-        {{ form.skip_page('mhq-7.html', 'Prefer not to say') }}
+      <h1 class="h2">Have you or someone else been injured as a result of your drinking?</h1>
+      {% call form.form('mhq-form', 'mhq-40.html', 'mhq-42.html', 'Go back', 'Continue') %}
+        {{ form.select_slider('depression-interfering', '', ['No', 'Yes, but not in the last year', 'Yes, during the last year'], required=true) }}
+        {{ form.skip_page('mhq-42.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

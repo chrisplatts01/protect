@@ -1,0 +1,57 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1 class="h2">What is your current weight?</h1>
+      {% call form.form('mhq-form', 'mhq-28.html', 'mhq-30.html', 'Go back', 'Continue') %}
+        {{ form.select_group('units', '', ['Imperial', 'Metric']) }}
+        <fieldset id="imperial">
+          {{ form.text2('', 'weight-st', 'Stone (st)', 'number', '', 'weight-lb', 'Pounds (lb)', 'number', '', required=true) }}
+        </fieldset>
+        <fieldset id="metric">
+          {{ form.text('weight-kg', 'Kilogrammes (kg)', 'number', required=true) }}
+        </fieldset>
+        {{ form.skip_page('mhq-30.html', 'Prefer not to say') }}
+      {% endcall %}
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+    <script>
+      (function($) {
+        var $units = $('input[name=units]');
+        var $imperialUnits = $('#units-imperial');
+        var $metricUnits = $('#units-metric');
+        var $imperial = $('#imperial');
+        var $metric = $('#metric');
+
+        $imperialUnits.prop('checked', true);
+        $metric.hide();
+
+        $units.on('change', function() {
+          if ($imperialUnits.prop('checked')) {
+            $imperial.show();
+            $metric.hide();
+          }
+
+          if ($metricUnits.prop('checked')) {
+            $imperial.hide();
+            $metric.show();
+          }
+        });
+      })(jQuery);
+    </script>
+  </section>
+{% endblock %}

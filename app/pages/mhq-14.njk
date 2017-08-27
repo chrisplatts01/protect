@@ -1,0 +1,29 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1 class="h2">If you have experienced any of the problems described in the previous three questions please indicate how much you have been bothered, <em>in the past month</em>, by feeling irritable or having angry outbursts?</h1>
+      {% call form.form('mhq-form', 'mhq-13.html', 'mhq-15.html', 'Go back', 'Continue') %}
+        {{ form.checkbox('irritable-angry-not-known', 'Do not know') }}
+        {{ form.select_slider('irritable-angry', '', ['Not at all', 'A little bit', 'Moderately', 'Quite a bit', 'Extremely']) }}
+        {{ form.skip_page('mhq-15.html', 'Prefer not to say') }}
+      {% endcall %}
+      {{ form.skip_section() }}
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+  </section>
+{% endblock %}

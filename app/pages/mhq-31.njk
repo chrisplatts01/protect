@@ -1,0 +1,50 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1 class="h2">We would like to know more about your depression or low mood, but if this is too difficult you can skip some questions.</h1>
+      {% call form.form('mhq-form', 'mhq-30.html', 'mhq-31.html', 'Go back', 'Continue') %}
+      {% endcall %}
+      {{ form.skip_section() }}
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+    <script>
+      (function($) {
+        var $units = $('input[name=units]');
+        var $imperialUnits = $('#units-imperial');
+        var $metricUnits = $('#units-metric');
+        var $imperial = $('#imperial');
+        var $metric = $('#metric');
+
+        $imperialUnits.prop('checked', true);
+        $metric.hide();
+
+        $units.on('change', function() {
+          if ($imperialUnits.prop('checked')) {
+            $imperial.show();
+            $metric.hide();
+          }
+
+          if ($metricUnits.prop('checked')) {
+            $imperial.hide();
+            $metric.show();
+          }
+        });
+      })(jQuery);
+    </script>
+  </section>
+{% endblock %}

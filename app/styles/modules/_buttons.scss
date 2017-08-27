@@ -39,24 +39,24 @@ input[type='button'] {
   &:disabled,
   &.disabled {
     cursor: not-allowed;
-    background-color: $light-gray;
-    color: $mid-gray !important;
-    border-bottom: 4px solid shade($light-gray, 20%);
+    background-color: $vlight-gray;
+    color: $light-gray !important;
+    border-bottom: 4px solid shade($vlight-gray, 20%);
 
     &:hover,
     &:focus {
-      background-color: $light-gray;
+      background-color: $vlight-gray;
     }
   }
 
   &.secondary {
-    background-color: $mid-gray;
+    background-color: $light-gray;
     color: $dark-gray !important;
-    border-bottom: 4px solid  shade($mid-gray, 20%);
+    border-bottom: 4px solid  shade($light-gray, 20%);
 
     &:hover,
     &:focus {
-      background-color: shade($mid-gray, 10%);
+      background-color: shade($light-gray, 10%);
     }
   }
 

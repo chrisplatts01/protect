@@ -44,6 +44,7 @@ Field: Text input - note if type="date"
     value = "",
     required = "",
     validation = "",
+    placeholder="",
     changeMonth = false,
     changeYear = false
   )
@@ -54,7 +55,7 @@ Field: Text input - note if type="date"
     {% if type == "date" %}
     <input id="{{ name }}" name="{{ name }}" type="text" value="{{ value }}" placeholder="dd/mm/yyyy" pattern="\d{2}\/\d{2}\/\d{4}" data-type="date" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
     {% else %}
-    <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %} {{ validation }}>
+    <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" placeholder="{{ placeholder }}"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %} {{ validation }}>
     {% endif %}
   </div>
 </div>
@@ -232,6 +233,34 @@ Field group: Radio buttons with optional
 
 {#
 ========================================
+Field group: Select buttons using radio
+             buttons
+========================================
+#}
+{% macro select_group(
+    name ="FIELD_NAME",
+    label = "",
+    values =["OPTION-1"],
+    required = "",
+    validation = ""
+  )
+%}
+<div class="form-field-group form-field-group--select-buttons">
+  {% if label %}<label>{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>{% endif %}
+
+  {% set num_fields = (100 / values | length) | round(2, down) %}
+
+  {% for value in values %}
+  <div class="form-field form-field--select-button" style="width: {{ num_fields }}%">
+    <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="radio" value="{{ value }}" {% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
+    <label for="{{ name }}-{{ value | lower | replace(" ", "-") }}">{{ value }}</label>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{#
+========================================
 Field: Select field
 ========================================
 #}
@@ -277,6 +306,31 @@ Field group: Yes/No radio buttons
   <div class="form-field form-field--radio">
     <input id="{{ name }}-no" name="{{ name }}" type="radio" value="no"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
     <label for="{{ name }}-no">No</label>
+  </div>
+</div>
+{% endmacro %}
+
+{#
+========================================
+Field group: Gender radio buttons
+========================================
+#}
+{% macro gender(
+    name = "FIELD_NAME",
+    label = "",
+    required = "",
+    validation = ""
+  )
+%}
+<div class="form-field-group form-field-group--radio">
+  {% if label %}<label>{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>{% endif %}
+  <div class="form-field form-field--radio">
+    <input id="{{ name }}-male" name="{{ name }}" type="radio" value="yes"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
+    <label for="{{ name }}-male">Male</label>
+  </div>
+  <div class="form-field form-field--radio">
+    <input id="{{ name }}-female" name="{{ name }}" type="radio" value="no"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
+    <label for="{{ name }}-female">Female</label>
   </div>
 </div>
 {% endmacro %}

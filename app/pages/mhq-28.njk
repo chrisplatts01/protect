@@ -1,0 +1,27 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1 class="h2">Thinking of the two-week period in your life when your feelings of depression or loss of interest were worst...about how long altogether did you feel this way? Count the time before, during and after the worst two weeks.</h1>
+      {% call form.form('mhq-form', 'mhq-27.html', 'mhq-29.html', 'Go back', 'Continue') %}
+        {{ form.radios('how-long-did-you-feel-this-way', '', ['Less than a month', 'Between one and three months', 'Over 3 months but less than six months', 'Over six months but less than 12 months', 'One to two years', 'Do not know']) }}
+        {{ form.skip_page('mhq-29.html', 'Prefer not to say') }}
+      {% endcall %}
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+  </section>
+{% endblock %}

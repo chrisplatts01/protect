@@ -146,7 +146,8 @@ jQuery.noConflict();
       $this.slider('option', 'min', 0);
       $this.slider('option', 'max', max);
       $this.slider('option', 'step', 1);
-      $this.slider('option', 'value', parseInt(max / 2));
+      // $this.slider('option', 'value', parseInt(max / 2));
+      $this.slider('option', 'value', 0);
       $this.slider('option', 'range', false);
       $this.slider('option', 'animate', 100);
 
@@ -364,7 +365,7 @@ jQuery.noConflict();
       var color = $(this).attr('data-color') || '#ccc1ba';
       var strokeWidth = 2;
 
-      console.log('Minutes = ' + minutes + ', Color = ' + color);
+      // console.log('Minutes = ' + minutes + ', Color = ' + color);
 
       var cr = 15;
       var cx = 18;

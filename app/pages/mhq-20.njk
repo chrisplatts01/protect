@@ -1,0 +1,57 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1 class="h2">Please list any medications you are currently taking in the box below (including pills, injections etc.)?</h1>
+      {% call form.form('mhq-form', 'mhq-19.html', 'mhq-21.html', 'Go back', 'Continue') %}
+        <div class="medications-wrapper">
+          <table id="medication-list" class="medications">
+            <thead>
+              <tr>
+                <th class="medication_name">Medication</th>
+                <th class="medication_dose">Dosage</th>
+                <th class="medication_frequency">Frequency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="medication-1" class="medication">
+                <td class="medication_name"><input id="medication-name-1" type="text" placeholder="e.g. Co-Codamol"></td>
+                <td class="medication_dose"><input id="medication-dose-1" type="text" placeholder="e.g. 3mg"></td>
+                <td class="medication_frequency"><input id="medication-frequency-1" type="number" placeholder="e.g. 4"></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="add-row"><button class="button--add-row" type="button">+</button></div>
+        </div>
+        {{ form.skip_page('mhq-21.html', 'Prefer not to say') }}
+      {% endcall %}
+      <script>
+        (function($) {
+          $('.button--add-row').on('click', function() {
+            var currentRows = $('#medication-list').find('.medication').length + 1;
+            var template = '<tr id="medication-' + currentRows + '" class="medication"><td class="medication_name"><input id="medication-name-' + currentRows + '" type="text" placeholder="e.g. Co-Codamol"></td><td class="medication_dose"><input id="medication-dose-' + currentRows + '" type="text" placeholder="e.g. 3mg"></td><td class="medication_frequency"><input id="medication-frequency-' + currentRows + '" type="number" placeholder="e.g. 4"></td></tr>';
+
+            console.log('Rows = ' + currentRows + '; Template = ' + template);
+
+            $('tr.medication:last').after(template);
+          });
+        })(jQuery);
+      </script>
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+  </section>
+{% endblock %}

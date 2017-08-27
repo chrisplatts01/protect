@@ -14,12 +14,12 @@
     }}
 
     <article>
-      <h1 class="h2">Think about your roles at the time of this episode, including study / employment, childcare and housework, leisure pursuits. How much did these problems interfere with your life or activities?</h1>
-      {% call form.form('mhq-form', 'mhq-09.html', 'mhq-11.html', 'Go back', 'Continue') %}
-        {{ form.checkbox('interfere-with-life-not known', 'Do not know') }}
-        {{ form.select_slider('interfere-with-life', '', ['Not at all', 'A little', 'Some', 'A lot']) }}
-        {{ form.skip_page('mhq-11.html', 'Prefer not to say') }}
+      <h1 class="h2">Have you or someone else been injured as a result of your drinking?</h1>
+      {% call form.form('mhq-form', 'mhq-05.html', 'mhq-06.html', 'Go back', 'Continue') %}
+        {{ form.radios('depression-interfering', '', ['No', 'Yes, but not in the last year', 'Yes, during the last year'], required=true) }}
+        {{ form.skip_page('mhq-06.html', 'Prefer not to say') }}
       {% endcall %}
+      <p class='message message--info'>Questionnaire saved</p>
     </article>
 
     {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}

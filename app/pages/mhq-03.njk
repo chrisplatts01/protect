@@ -17,14 +17,14 @@
       <h1 class="h2">Have you been diagnosed with one or more of the following mental health problems by a professional, even if you don’t have it currently?</h1>
       <p>By professional we mean any doctor, nurse or person with specialist training, such as a psychologist or therapist.</p>
       <p>Please include disorders even if you did not need treatment for them or if you did not agree with the diagnosis.</p>
-      {% call form.form('mhq-form', 'mhq-2.html', 'mhq-4.html', 'Go back', 'Continue') %}
+      {% call form.form('mhq-form', 'mhq-02.html', 'mhq-04.html', 'Go back', 'Continue') %}
         {{ form.radio('diagnosis', 'Yes (check all that apply)', required) }}
         <fieldset>
           {{ form.checkboxes('diagnosis-options', '', ['Depression', 'Mania, hypomania, bipolar or manic- depression', 'Anxiety, nerves or generalized anxiety disorder', 'Social anxiety or social phobia', 'Agoraphobia', 'Panic attacks', 'Obsessive compulsive disorder (OCD)']) }}
         </fieldset>
         {{ form.radio('diagnosis', 'No', required) }}
         {{ form.radio('diagnosis', 'Do not know', required) }}
-        {{ form.skip_page('mhq-4.html', 'Prefer not to say') }}
+        {{ form.skip_page('mhq-04.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

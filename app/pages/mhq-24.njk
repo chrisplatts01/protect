@@ -14,12 +14,11 @@
     }}
 
     <article>
-      <h1 class="h2">In your life, have you been a victim of a sexual assault, whether by a stranger or someone you knew?</h1>
-      {% call form.form('mhq-form', 'mhq-6.html', 'mhq-8.html', 'Go back', 'Continue') %}
-        {{ form.radios('sexual-assault', '', ['No', 'Yes, but not in the last year', 'Yes, during the last year'], required=true) }}
-        {{ form.skip_page('mhq-8.html', 'Prefer not to say') }}
+      <h1 class="h2">Have you been addicted to illicit or recreational drugs?</h1>
+      {% call form.form('mhq-form', 'mhq-23.html', 'mhq-24a.html', 'Go back', 'Continue') %}
+        {{ form.select_group('drug-addiction', '', ['Yes', 'No', 'Don\'t know'], required=true) }}
+        {{ form.skip_page('mhq-24a.html', 'Prefer not to say') }}
       {% endcall %}
-      {{ form.skip_section() }}
     </article>
 
     {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
