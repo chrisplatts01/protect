@@ -181,6 +181,8 @@ jQuery.noConflict();
       $slider.slider('value', this.selectedIndex);
     });
 
+  $('.select-slider:disabled').slider('disable');
+
   // ---------------------------------------------------------------------------
   // Handle JQuery UI date widget
   // ---------------------------------------------------------------------------

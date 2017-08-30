@@ -16,11 +16,26 @@
     <article>
       <h1 class="h2">If you have experienced any of the problems described in the previous three questions please indicate how much you have been bothered, <em>in the past month</em>, by feeling irritable or having angry outbursts?</h1>
       {% call form.form('mhq-form', 'mhq-13.html', 'mhq-15.html', 'Go back', 'Continue') %}
-        {{ form.checkbox('irritable-angry-not-known', 'Do not know') }}
-        {{ form.select_slider('irritable-angry', '', ['Not at all', 'A little bit', 'Moderately', 'Quite a bit', 'Extremely']) }}
+        {{ form.checkbox('not-irritable-angry', 'Do not know') }}
+        {{ form.select_slider('irritable-angry', '', ['Not at all', 'A little bit', 'Moderately', 'Quite a bit', 'Extremely'], required=true) }}
         {{ form.skip_page('mhq-15.html', 'Prefer not to say') }}
       {% endcall %}
       {{ form.skip_section() }}
+      <script>
+        (function($) {
+          $('#not-irritable-angry').on('change', function() {
+            var $slider = $('.select-slider');
+
+            if ($(this).prop('checked')) {
+              $slider.slider('disable');
+              $slider.find('select').prop('disabled', true);
+            } else {
+              $slider.slider('enable');
+              $slider.find('select').prop('disabled', false);
+            }
+          });
+        })(jQuery);
+      </script>
     </article>
 
     {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}

@@ -1,0 +1,17 @@
+.ui-widget {
+  font-family: $base-font-family;
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight {
+  border-color: $dark-gray;
+  background-color: $mid-gray;
+  color: $dark-gray;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active {
+  border-color: $dark-gray;
+  background-color: $brand-tertiary;
+  color: $white;
+}

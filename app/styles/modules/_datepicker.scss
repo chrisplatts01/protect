@@ -1,0 +1,16 @@
+.ui-datepicker {
+  .ui-datepicker-header {
+    color: $white;
+    background-color: $brand-primary;
+  }
+
+  td {
+    span, a {
+      text-align: center;
+    }
+  }
+}
+
+.ui-datepicker .ui-datepicker-title select {
+  margin: 1px 2px;
+}

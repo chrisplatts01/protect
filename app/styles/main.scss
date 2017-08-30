@@ -24,8 +24,10 @@
 @import 'modules/buttons';
 @import 'modules/video';
 @import 'modules/ribbon';
+@import 'modules/widget';
 @import 'modules/slider';
 @import 'modules/select-slider';
+@import 'modules/datepicker';
 @import 'modules/mask';
 @import 'modules/modal';
 @import 'modules/timer-icon';
@@ -37,71 +39,3 @@
 @import 'modules/panel-progress';
 @import 'modules/panel-overlay';
 @import 'modules/session';
-
-// =============================================================================
-// Override some JQuery UI rules
-// Ideally these should be rolled imto a custom JQuery UI theme
-.slider span.ui-slider-handle {
-  border-radius: 50% !important;
-  height: 32px;
-  width: 32px;
-  outline: 0;
-}
-
-.slider span.ui-slider-handle:hover,
-.slider span.ui-slider-handle:focus,
-.slider span.ui-slider-handle:active {
-  border: 1px solid $brand-primary !important;
-  background-color: $white !important;
-  outline: 0;
-}
-
-.select-slider span.ui-slider-handle {
-  border-radius: 50% !important;
-  height: 32px;
-  width: 32px;
-  outline: 0;
-  top: -8px;
-}
-
-.select-slider span.ui-slider-handle:hover,
-.select-slider span.ui-slider-handle:focus,
-.select-slider span.ui-slider-handle:active {
-  border: 1px solid $brand-primary !important;
-  background-color: $white !important;
-}
-
-.ui-datepicker {
-  .ui-datepicker-header {
-    color: $white;
-    background-color: $brand-primary;
-  }
-
-  td {
-    span, a {
-      text-align: center;
-    }
-  }
-}
-
-.ui-widget {
-  font-family: $base-font-family;
-}
-
-.ui-state-highlight,
-.ui-widget-content .ui-state-highlight {
-  border-color: $dark-gray;
-  background-color: $mid-gray;
-  color: $dark-gray;
-}
-
-.ui-state-active,
-.ui-widget-content .ui-state-active {
-  border-color: $dark-gray;
-  background-color: $brand-tertiary;
-  color: $white;
-}
-
-.ui-datepicker .ui-datepicker-title select {
-  margin: 1px 2px;
-}

@@ -17,9 +17,24 @@
       <h1 class="h2">Managing household finances (e.g. paying bills, balancing household expenses) - self- performance rating.</h1>
       {% call form.form('mhq-form', 'mhq-07.html', 'mhq-09.html', 'Go back', 'Continue') %}
         {{ form.checkbox('not-managing-household', 'Activity did not occur') }}
-        {{ form.select_slider('managing-household', '', ['On my own', 'With some help', 'With full help', 'Done by others']) }}
+        {{ form.select_slider('managing-household', '', ['On my own', 'With some help', 'With full help', 'Done by others'], required=true) }}
         {{ form.skip_page('mhq-09.html', 'Prefer not to say') }}
       {% endcall %}
+      <script>
+        (function($) {
+          $('#not-managing-household').on('change', function() {
+            var $slider = $('.select-slider');
+
+            if ($(this).prop('checked')) {
+              $slider.slider('disable');
+              $slider.find('select').prop('disabled', true);
+            } else {
+              $slider.slider('enable');
+              $slider.find('select').prop('disabled', false);
+            }
+          });
+        })(jQuery);
+      </script>
     </article>
 
     {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}

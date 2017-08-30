@@ -119,6 +119,19 @@
         border-bottom-left-radius: $base-border-radius;
         margin-top: -16px;
       }
+
+      .progress-ticks {
+        span {
+          display: inline-block;
+          width: 10%;
+          border-left: 1px solid $mid-gray;
+          height: 8px;
+
+          &:last-child {
+            border-right: 1px solid $mid-gray;
+          }
+        }
+      }
     }
 
     .progress-steps {

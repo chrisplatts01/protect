@@ -16,10 +16,25 @@
     <article>
       <h1 class="h2">How many times have you harmed yourself?</h1>
       {% call form.form('mhq-form', 'mhq-32.html', 'mhq-34.html', 'Go back', 'Continue') %}
-        {{ form.checkbox('harmed-self-not-known', 'Do not know') }}
-        {{ form.select_slider('harmed-self', '', ['1', '2', '3', '3+']) }}
+        {{ form.checkbox('not-harmed-self', 'Do not know') }}
+        {{ form.select_slider('harmed-self', '', ['1', '2', '3', '3+'], required=true) }}
         {{ form.skip_page('mhq-34.html', 'Prefer not to say') }}
       {% endcall %}
+      <script>
+        (function($) {
+          $('#not-harmed-self').on('change', function() {
+            var $slider = $('.select-slider');
+
+            if ($(this).prop('checked')) {
+              $slider.slider('disable');
+              $slider.find('select').prop('disabled', true);
+            } else {
+              $slider.slider('enable');
+              $slider.find('select').prop('disabled', false);
+            }
+          });
+        })(jQuery);
+      </script>
     </article>
 
     {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}

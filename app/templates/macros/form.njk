@@ -43,6 +43,7 @@ Field: Text input - note if type="date"
     type  = "text",
     value = "",
     required = "",
+    disabled = "",
     validation = "",
     placeholder="",
     changeMonth = false,
@@ -77,6 +78,7 @@ Field group: Inline text input
     type2 = "text",
     value2 = "",
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -105,6 +107,7 @@ Field: Text area
     label = "",
     value = "",
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -128,6 +131,7 @@ Field: Checkbox with optional time icon
     duration = 0,
     checked = "",
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -155,6 +159,7 @@ Field group: Checkboxes with optional
     durations = [0],
     inline = false,
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -186,6 +191,7 @@ Field: Radio button with optional time
     duration = 0,
     checked = "",
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -212,6 +218,7 @@ Field group: Radio buttons with optional
     values =["OPTION-1"],
     durations = [0],
     required = "",
+    disabled = "",
     validation = "",
     inline = false
   )
@@ -242,6 +249,7 @@ Field group: Select buttons using radio
     label = "",
     values =["OPTION-1"],
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -269,6 +277,7 @@ Field: Select field
     label = "",
     values = ["0", "1", "2", "3", "4", "5" ],
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -294,6 +303,7 @@ Field group: Yes/No radio buttons
     name = "FIELD_NAME",
     label = "",
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -319,6 +329,7 @@ Field group: Gender radio buttons
     name = "FIELD_NAME",
     label = "",
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -351,6 +362,7 @@ Field: Input field as JQuery UI Slider
     floor = "",
     ceiling = "",
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
@@ -389,13 +401,14 @@ Field: Input field as JQuery UI Slider
     floor = "",
     ceiling = "",
     required = "",
+    disabled = "",
     validation = ""
   )
 %}
 <div class="form-field-group form-field-group--select-slider">
   <div class="form-field form-field--select-slider">
     <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
-    <div class="select-slider">
+    <div class="select-slider"{% if disabled %} disabled{% endif %}>
       <div class="select-slider_fill"></div>
 
       <div class="select-slider_values">
@@ -411,7 +424,7 @@ Field: Input field as JQuery UI Slider
       </div>
       {% endif %}
 
-      <select id="{{ name }}" name="{{ name }}"  data-type="slider" data-values="{{ values | join('|') }}"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
+      <select id="{{ name }}" name="{{ name }}"  data-type="slider" data-values="{{ values | join('|') }}"{% if required %} required{% endif %}{% if disabled %} disabled{% endif %}{% if validation %} {{ validation }}{% endif %}>
         <option disabled selected>Please choose&hellip;</option>
         {% for value in values %}
           <option value="{{ value }}">{{ value }}</option>
