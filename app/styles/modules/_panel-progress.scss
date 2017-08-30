@@ -121,6 +121,7 @@
       }
 
       .progress-ticks {
+        display: none;
         span {
           display: inline-block;
           width: 10%;
@@ -132,6 +133,10 @@
           }
         }
       }
+    }
+
+    .progress-text {
+      color: $brand-primary;
     }
 
     .progress-steps {

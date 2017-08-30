@@ -16,7 +16,7 @@
     <article>
       <h1 class="h2">How many times have you harmed yourself?</h1>
       {% call form.form('mhq-form', 'mhq-05a.html', 'mhq-07.html', 'Go back', 'Continue') %}
-        {{ form.checkbox('not-harmed-self', 'Do not know') }}
+        {{ form.checkbox('not-harmed-self', 'not-harmed-self', 'Do not know', 'Do not know') }}
         {{ form.select_slider('harmed-self', '', ['0', '1', '2', '3+'], required=true) }}
         {{ form.skip_page('mhq-07.html', 'Prefer not to say') }}
       {% endcall %}

@@ -18,15 +18,27 @@
       <p>By professional we mean any doctor, nurse or person with specialist training, such as a psychologist or therapist.</p>
       <p>Please include disorders even if you did not need treatment for them or if you did not agree with the diagnosis.</p>
       {% call form.form('mhq-form', 'mhq-02.html', 'mhq-04.html', 'Go back', 'Continue') %}
-        {{ form.radio('diagnosis', 'Yes (check all that apply)', required) }}
-        <fieldset>
-          {{ form.checkboxes('diagnosis-options', '', ['Depression', 'Mania, hypomania, bipolar or manic- depression', 'Anxiety, nerves or generalized anxiety disorder', 'Social anxiety or social phobia', 'Agoraphobia', 'Panic attacks', 'Obsessive compulsive disorder (OCD)']) }}
+        {{ form.radio('diagnosis-yes', 'diagnosis', 'Yes (check all that apply)', 'Yes', required=true) }}
+        <fieldset class="indent">
+          {{ form.checkboxes('diagnosis-options', '', ['Depression', 'Mania, hypomania, bipolar or manic- depression', 'Anxiety, nerves or generalized anxiety disorder', 'Social anxiety or social phobia', 'Agoraphobia', 'Panic attacks', 'Obsessive compulsive disorder (OCD)'], required=true) }}
         </fieldset>
-        {{ form.radio('diagnosis', 'No', required) }}
-        {{ form.radio('diagnosis', 'Do not know', required) }}
+        {{ form.radio('diagnosis-no', 'diagnosis', 'No', 'No', required=true) }}
+        {{ form.radio('diagnosis-dont-know', 'diagnosis', 'Do not know', 'Do not know', required=true) }}
         {{ form.skip_page('mhq-04.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
+    <script>
+      (function($) {
+        $('input[name="diagnosis-options"]').prop('disabled', true);
+        $('input[name="diagnosis"]').on('change', function() {
+          if ($(this).val() === 'Yes') {
+            $('input[name="diagnosis-options"]').prop('disabled', false);
+          } else {
+            $('input[name="diagnosis-options"]').prop('disabled', true);
+          }
+        });
+      })(jQuery);
+    </script>
 
     {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
 

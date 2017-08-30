@@ -16,7 +16,7 @@
     <article>
       <h1 class="h2">Managing household finances (e.g. paying bills, balancing household expenses) - self- performance rating.</h1>
       {% call form.form('mhq-form', 'mhq-07.html', 'mhq-09.html', 'Go back', 'Continue') %}
-        {{ form.checkbox('not-managing-household', 'Activity did not occur') }}
+        {{ form.checkbox('not-managing-household', 'not-managing-household', 'Activity did not occur', 'Activity did not occur') }}
         {{ form.select_slider('managing-household', '', ['On my own', 'With some help', 'With full help', 'Done by others'], required=true) }}
         {{ form.skip_page('mhq-09.html', 'Prefer not to say') }}
       {% endcall %}

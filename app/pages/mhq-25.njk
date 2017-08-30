@@ -18,10 +18,22 @@
       {% call form.form('mhq-form', 'mhq-24a.html', 'mhq-26.html', 'Go back', 'Continue') %}
         {{ form.checkboxes('mental-health-problems', '', ['Depression', 'Mania, hypomania, bipolar or manic-depression', 'Anxiety, nerves or generalized anxiety disorder', 'Social anxiety or social phobia', 'Agoraphobia', 'Panic attacks', 'Obsessive compulsive disorder (OCD)']) }}
         <hr>
-        {{ form.radios('no-mental-health-problems', '', ['None of the above', 'I don\'t know']) }}
+        {{ form.radios('no-mental-health-problems', '', ['None of the above', 'I don\'t know'], required=true) }}
         {{ form.skip_page('mhq-26.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
+    <script>
+      (function($) {
+        $('input[name="no-mental-health-problems"]').prop('disabled', false);
+        $('input[name="mental-health-problems"]').on('change', function() {
+           if ($('input[name="mental-health-problems"]:checked').length) {
+            $('input[name="no-mental-health-problems"]').prop('disabled', true).prop('checked', false);
+          } else {
+            $('input[name="no-mental-health-problems"]').prop('disabled', false).prop('checked', false);
+          }
+        });
+      })(jQuery);
+    </script>
 
     {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
 

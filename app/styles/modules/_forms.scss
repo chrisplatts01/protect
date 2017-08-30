@@ -9,6 +9,10 @@ fieldset {
   & + fieldset {
     margin-top: $base-spacing;
   }
+
+  &.indent {
+    padding: 12px 0 12px 24px;
+  }
 }
 
 legend {
