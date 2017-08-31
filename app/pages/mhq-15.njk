@@ -6,7 +6,7 @@
     {{ section.header(
         title = 'Mental Health Questionnaire' | safe,
         subtitle = 'Assessment' | safe,
-        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        info = '<a href="#">Tooltip link</a>' | safe,
         duration = 15,
         step = 1,
         steps = 5
@@ -15,9 +15,9 @@
 
     <article>
       <h1 class="h2">About how old were you the FIRST time you had a period of two weeks like this? (Whether or not you received any help for it.)</h1>
-      {% call form.form('mhq-form', 'mhq-14.html', 'mhq-15.html', 'Go back', 'Continue') %}
-        {{ form.text(type='number', placeholder='e.g. 18', required=true) }}
-        {{ form.skip_page('mhq-15.html', 'Prefer not to say') }}
+      {% call form.form('mhq-form', 'mhq-14.html', 'mhq-16.html', 'Go back', 'Continue') %}
+        {{ form.text(type='number', 'how-old', placeholder='e.g. 18', required=true) }}
+        {{ form.skip_page('mhq-16.html', 'Prefer not to say') }}
       {% endcall %}
     </article>
 

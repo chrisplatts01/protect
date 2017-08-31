@@ -3,17 +3,23 @@
   position: relative;
   width: 90%;
   margin: $base-spacing auto $base-spacing;
-  background-color: $light-gray;
-  box-shadow: 0 1px 3px $mid-gray inset;
+  background-color: $vlight-gray;
+  box-shadow: 0 1px 3px $light-gray inset;
+  border: 1px solid $mid-gray !important;
 
   .select-slider_fill {
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
-    height: 0.8em;
+    height: 14px;
     background-color: $brand-primary;
     transition: width .5s ease-in-out;
+  }
+
+  .select-slider_fill-0 {
+    @extend .select-slider_fill;
+    background-color: $mid-gray;
   }
 
   select {
@@ -22,8 +28,19 @@
     top: 0;
   }
 
+  .select-slider_ticks {
+    @include flexbox($justify-content: space-between);
+    line-height: 1;
+    margin-top: $base-spacing;
+
+    .tick {
+      height: 6px;
+      border-left: 1px solid $mid-gray;
+    }
+  }
+
   .select-slider_values {
-    margin: $base-spacing 0 0 0;
+    margin: 0;
 
     .select-slider_value {
       display: inline-block;
@@ -33,7 +50,7 @@
 
       font-size: $small-font-size;
       line-height: $small-line-height;
-      color: $brand-secondary;
+      color: $dark-gray;
     }
   }
 
@@ -54,6 +71,7 @@
     width: 32px;
     outline: 0;
     top: -8px;
+    margin-left: -16px;
   }
 
   span.ui-slider-handle:hover,
@@ -62,21 +80,6 @@
     border: 1px solid $brand-primary !important;
     background-color: $white !important;
   }
-
-  // &:disabled {
-  //   background-color: $vlight-gray;
-  //   box-shadow: none;
-
-  //   .select-slider_values {
-  //     .select-slider_value {
-  //       color: $mid-gray;
-  //     }
-  //   }
-
-  //   .select-slider_labels{
-  //     color: $mid-gray;
-  //   }
-  // }
 }
 
 

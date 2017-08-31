@@ -38,10 +38,10 @@
   {% if show_progress_bar %}
   <div class="progress-bar">
     <div class="wrapper">
+      <div class="progress-text">{{ step / steps * 100 }}% completed</div>
       <div class="progress-total"></div>
       <div class="progress-done" style="width: {{ step / steps * 100 }}%"></div>
       <div class="progress-ticks"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-      <div class="progress-text">{{ step / steps * 100 }}% completed</div>
     </div>
   </div>
   {% endif %}

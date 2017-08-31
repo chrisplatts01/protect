@@ -6,7 +6,7 @@
     {{ section.header(
         title = 'Mental Health Questionnaire' | safe,
         subtitle = 'Assessment' | safe,
-        info = '<a href="#">&lt;&nbsp;&nbsp;Back to my assessment</a>' | safe,
+        info = '<a href="#">Tooltip link</a>' | safe,
         duration = 15,
         step = 1,
         steps = 5
@@ -32,9 +32,9 @@
         $('input[name="diagnosis-options"]').prop('disabled', true);
         $('input[name="diagnosis"]').on('change', function() {
           if ($(this).val() === 'Yes') {
-            $('input[name="diagnosis-options"]').prop('disabled', false);
+            $('input[name="diagnosis-options"]').prop('disabled', false).prop('checked', false);
           } else {
-            $('input[name="diagnosis-options"]').prop('disabled', true);
+            $('input[name="diagnosis-options"]').prop('disabled', true).prop('checked', false);
           }
         });
       })(jQuery);
