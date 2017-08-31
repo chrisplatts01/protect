@@ -412,6 +412,13 @@ Field: Input field as JQuery UI Slider
     <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
     <div class="select-slider"{% if disabled %} disabled{% endif %}>
       <div class="select-slider_fill"></div>
+      {% if values[0] === '' %}<div class="select-slider_fill-0" style="width: {{ 100 / (values | length - 1) }}%;"></div>{% endif %}
+
+      <div class="select-slider_ticks">
+        {% for value in values -%}
+          <div class="tick"></div>
+        {%- endfor %}
+      </div>
 
       <div class="select-slider_values">
         {% for value in values -%}
@@ -448,7 +455,8 @@ Form skip page: Skip this page
   )
 %}
 <div class="form-skip-page">
-  <a class="form-skip-page_link" href="{{ next }}">{{ label }}</a>
+  <!-- a class="form-skip-page_link" onclick="form.submit(); return false;" formnovalidate href="{{ next }}">{{ label }}</a -->
+  <button class="button--skip" type="submit" formnovalidate>{{ label }}</button>
 </div>
 {% endmacro %}
 

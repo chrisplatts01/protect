@@ -245,6 +245,10 @@ input[type='checkbox']:disabled + label:before {
   }
 }
 
+.form-field-group--checkbox + .form-field-group--select-slider {
+  margin-top: $base-spacing * 2;
+}
+
 .form-field-row {
   @include flexbox($justify-content: space-between, $flex-wrap: nowrap);
   margin: $base-spacing 0;
@@ -294,11 +298,6 @@ input[type='checkbox']:disabled + label:before {
 
 .form-skip-page {
   padding-top: $base-spacing;
-
-  &:after {
-    content: '\2002>';
-    color: $brand-secondary;
-  }
 }
 
 .form-skip-section {

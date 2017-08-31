@@ -226,7 +226,7 @@ jQuery.noConflict();
   // Handle modals
   // ---------------------------------------------------------------------------
   $('.modal').popup({
-    color: '#022553',
+    color: '#0071e9',
     opacity: 0.9,
     horizontal: 'center',
     vertical: 'center',

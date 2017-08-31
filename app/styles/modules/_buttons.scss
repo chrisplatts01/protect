@@ -118,3 +118,27 @@ input[type='button'] {
   }
 }
 
+button.button--skip {
+  display: inline-block;
+  background-color: transparent;
+  text-align: left;
+  border: none;
+  padding: 0 !important;
+  color: $action-color !important;
+  text-decoration: underline;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($action-color, 25%) !important;
+  }
+
+  &:after {
+    position: relative;
+    top: 12px;
+    left: 12px;
+    content: url('/images/large-blue-right-arrow.svg');
+  }
+}
+

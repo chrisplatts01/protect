@@ -9,7 +9,7 @@
 
       h1 {
         color: $dark-gray;
-        padding: 0 $base-spacing $base-spacing;
+        padding: 0 $base-spacing $base-spacing * 1.5;
         margin: 0;
 
         .steps {
@@ -26,6 +26,7 @@
 
       h2 {
         color: $dark-gray;
+        font-weight: 400;
         padding: $base-spacing $base-spacing 0;
         margin: 0;
       }
@@ -43,7 +44,7 @@
       @include clearfix;
       position: relative;
       background-color: $vlight-gray;
-      padding: 0;
+      padding: 0 0 6px;
 
       hr {
         height: 1px;
@@ -62,11 +63,11 @@
 
       .progress-duration,
       .progress-complete {
-        margin: 14px 0 6px;
+        margin: 4px 0 6px;
         padding: 0 $base-spacing;
 
         @include breakpoint(large) {
-          margin: $base-spacing 0;
+          margin: $small-spacing 0;
         }
 
         img {
@@ -86,8 +87,8 @@
 
         @include breakpoint(large) {
           text-align: right;
-          margin: 0 0 $base-spacing 0;
-          padding: 26px $base-spacing 0;
+          margin: 0 0 $small-spacing 0;
+          padding: 12px $base-spacing 0;
         }
       }
     }
@@ -96,7 +97,7 @@
       margin: $base-spacing 0;
 
       @include breakpoint(large) {
-        margin: $base-spacing 0 $base-spacing * 2;
+        margin: $base-spacing 0;
       }
 
       .wrapper {
@@ -121,12 +122,13 @@
       }
 
       .progress-ticks {
-        display: none;
+        line-height: 1;
+
         span {
           display: inline-block;
           width: 10%;
           border-left: 1px solid $mid-gray;
-          height: 8px;
+          height: 6px;
 
           &:last-child {
             border-right: 1px solid $mid-gray;
@@ -137,12 +139,13 @@
 
     .progress-text {
       color: $brand-primary;
+      font-size: $small-font-size;
     }
 
     .progress-steps {
       font-size: $h1-font-size-mobile;
       line-height: $h1-line-height-mobile;
-      font-weight: 300;
+      font-weight: 400;
       color: $mid-gray;
       margin-bottom: -8px;
 
