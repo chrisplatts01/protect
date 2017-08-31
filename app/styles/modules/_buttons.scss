@@ -27,7 +27,7 @@ input[type='button'] {
   white-space: nowrap;
   border-bottom: 4px solid shade($brand-primary, 30%);
   width: 224px;
-  height: 44px;
+  height: 48px;
 
   &:hover,
   &:focus {
@@ -41,7 +41,7 @@ input[type='button'] {
     cursor: not-allowed;
     background-color: $vlight-gray;
     color: $light-gray !important;
-    border-bottom: 4px solid shade($vlight-gray, 20%);
+    border-bottom: 4px solid $light-gray;
 
     &:hover,
     &:focus {
@@ -71,15 +71,31 @@ input[type='button'] {
     }
   }
 
-  &.button--back {
+  &.button--next {
     position: relative;
-    padding: 12px 24px 12px 12px;
 
     &:before {
-      position: relative;
-      content: url('/images/left-arrow-grey.svg');
-      left: -12px;
-      top: -1px;
+      position: absolute;
+      font-size: 48px;
+      font-weight: 100;
+      content: '\203a';
+      right: 12px;
+      top: 8px;
+      width: 12px;
+      overflow: visible;
+    }
+  }
+
+  &.button--back {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      font-size: 48px;
+      font-weight: 100;
+      content: '\2039';
+      left: 12px;
+      top: 8px;
       width: 12px;
       overflow: visible;
     }
