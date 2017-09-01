@@ -97,24 +97,36 @@ jQuery.noConflict();
   // ---------------------------------------------------------------------------
   // Handle JQuery UI Slider as numeric value
   // ---------------------------------------------------------------------------
-  $('.slider').slider({
+  var $slider = $('.number-slider').slider({
     create: function(event, ui) {
       var $this = $(this);
       var $input = $this.find('input');
       var min = $input.data('min');
       var max = $input.data('max');
-      var step = $input.data('step');
+      var step = $input.data('step') || 1;
+      var labelStep = $input.data('label-step') || 1;
+
+      var labelSteps = 1 + (max - min) / labelStep;
+      var labelWidth = 100 / labelSteps + '%';
+      var labelMargin = -0.5 * 100 / labelSteps + '%';
 
       $this.slider('option', 'min', min);
       $this.slider('option', 'max', max);
       $this.slider('option', 'step', step);
       $this.slider('option', 'range', false);
       $this.slider('option', 'animate', 100);
+
+      $this
+        .find('.number-slider_labels')
+        .css({marginLeft: labelMargin, marginRight: labelMargin});
+      $this
+        .find('.number-slider_label')
+        .width(labelWidth);
     },
     slide: function(event, ui) {
       var $this = $(this);
       var $input = $this.find('input');
-      var $fill = $this.find('.slider_fill');
+      var $fill = $this.find('.number-slider_fill');
 
       var min = $this.slider('option', 'min');
       var max = $this.slider('option', 'max');
@@ -123,6 +135,10 @@ jQuery.noConflict();
 
       $input.val(value);
       $fill.width(fill);
+
+      $this
+        .find('.ui-slider-handle')
+        .html('<span class="number-slider_value">' + value + '</span>');
 
       // Force form validation
       checkIfValid();
@@ -141,12 +157,11 @@ jQuery.noConflict();
       var max = values.length - 1;
 
       var width = 100 / (max + 1) + '%';
-      var margin = -0.5 * 100 / (max + 1) + '%';
+      var margin = -0.5 * 100 / (max) + '%';
 
       $this.slider('option', 'min', 0);
       $this.slider('option', 'max', max);
       $this.slider('option', 'step', 1);
-      // $this.slider('option', 'value', parseInt(max / 2));
       $this.slider('option', 'value', 0);
       $this.slider('option', 'range', false);
       $this.slider('option', 'animate', 100);

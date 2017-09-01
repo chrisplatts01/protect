@@ -116,9 +116,11 @@ input[type='button'] {
 
     &:after {
       position: absolute;
-      content: " >>";
-      right: 24px;
-      top: 12px;
+      font-weight: 100;
+      font-size: 48px;
+      content: '\203a';
+      right: 12px;
+      top: 8px;
       width: 12px;
       overflow: visible;
     }
@@ -141,20 +143,22 @@ button.button--skip {
   border: none;
   padding: 0 !important;
   color: $action-color !important;
-  text-decoration: underline;
   transition: color $base-duration $base-timing;
 
   &:active,
   &:focus,
   &:hover {
     color: shade($action-color, 25%) !important;
+    text-decoration: underline;
   }
 
   &:after {
     position: relative;
-    top: 12px;
-    left: 12px;
-    content: url('/images/large-blue-right-arrow.svg');
+    top: 7px;
+    left: 8px;
+    font-weight: 100;
+    font-size: 48px;
+    content: '\203a';
   }
 }
 

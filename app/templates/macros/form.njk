@@ -354,13 +354,13 @@ Field: Input field as JQuery UI Slider
        (numeric)
 ========================================
 #}
-{% macro slider(
+{% macro number_slider(
     name = "FIELD_NAME",
     label = "",
     min = 0,
     max = 10,
     step = 1,
-    unit = "",
+    label_step = 1,
     floor = "",
     ceiling = "",
     required = "",
@@ -368,23 +368,30 @@ Field: Input field as JQuery UI Slider
     validation = ""
   )
 %}
-<div class="form-field-group form-field-group--slider">
-  <div class="form-field form-field--slider">
+<div class="form-field-group form-field-group--number-slider">
+  <div class="form-field form-field--number-slider">
     <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
-    <div class="slider">
-      <div class="slider_fill"></div>
-      <div class="slider_labels">
+    <div class="number-slider">
+      <div class="number-slider_fill"></div>
+
+      <div class="number-slider_ticks">
         {% for i in range( min, max + 1, step ) -%}
-          <div class="slider_label">{{ i }}{{ unit }}</div>
+          <div class="tick"></div>
+        {%- endfor %}
+      </div>
+
+      <div class="number-slider_labels">
+        {% for i in range( min, max + 1, label_step ) -%}
+          <div class="number-slider_label">{{ i }}</div>
         {%- endfor %}
       </div>
       {% if floor or ceiling %}
-      <div class="slider-guides">
+      <div class="number-slider-guides">
         <span>{{ floor }}</span>
         <span>{{ ceiling }}</span>
       </div>
       {% endif %}
-      <input id="{{ name }}" name="{{ name }}" type="text" data-type="slider" data-min="{{ min }}" data-max="{{ max }}" data-step="{{ step }}" {% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
+      <input id="{{ name }}" name="{{ name }}" type="text" data-type="slider" data-min="{{ min }}" data-max="{{ max }}" data-step="{{ step }}" data-label-step="{{ step }}" {% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
     </div>
   </div>
 </div>
@@ -412,7 +419,7 @@ Field: Input field as JQuery UI Slider
     <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
     <div class="select-slider"{% if disabled %} disabled{% endif %}>
       <div class="select-slider_fill"></div>
-      {% if values[0] === '' %}<div class="select-slider_fill-0" style="width: {{ 100 / (values | length - 1) }}%;"></div>{% endif %}
+      {# % if values[0] === '' %}<div class="select-slider_fill-0" style="width: {{ 100 / (values | length - 1) }}%;"></div>{% endif % #}
 
       <div class="select-slider_ticks">
         {% for value in values -%}

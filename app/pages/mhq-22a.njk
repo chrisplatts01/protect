@@ -1,0 +1,27 @@
+{% extends 'layouts/layout.njk' %}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = 'Mental Health Questionnaire' | safe,
+        subtitle = 'Assessment' | safe,
+        info = '<a href="#">Tooltip link</a>' | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1 class="h2">On average in the last month how many hours sleep have you had at night?</h1>
+      {% call form.form('mhq-form', 'mhq-21.html', 'mhq-23.html', 'Go back', 'Continue') %}
+        {{ form.number_slider('hours-sleep', '', min=0, max=24, step=1, label_step=6, required=true) }}
+        {{ form.skip_page('mhq-23.html', 'Prefer not to say') }}
+      {% endcall %}
+    </article>
+
+    {{ section.footer( info = '<a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a>' | safe ) }}
+
+  </section>
+{% endblock %}

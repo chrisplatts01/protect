@@ -1,0 +1,106 @@
+.number-slider {
+  @include clearfix;
+  position: relative;
+  width: 100%;
+  margin: $base-spacing * 2 auto;
+  background-color: $light-gray;
+  box-shadow: 0 1px 3px $mid-gray inset;
+
+  .number-slider_fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0.8em;
+    background-color: $brand-primary;
+    transition: width .1s ease-in-out;
+  }
+
+  input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+  }
+
+  .number-slider_ticks {
+    @include flexbox($justify-content: space-between);
+    line-height: 1;
+    margin-top: $base-spacing;
+
+    .tick {
+      height: 6px;
+      border-left: 1px solid $mid-gray;
+    }
+  }
+
+  .number-slider_labels {
+    @include flexbox($justify-content: space-between);
+    position: relative;
+    // left: -4px;
+    margin-top: 4px;
+
+    .number-slider_label {
+      // width: 0;
+      //overflow: visible;
+      text-align: center;
+      font-size: $small-font-size;
+      line-height: $small-line-height;
+      color: $brand-secondary;
+    }
+  }
+
+  .number-slider-guides {
+    @include flexbox($justify-content: space-between);
+
+    span {
+      font-size: $small-font-size;
+      line-height: $small-line-height;
+    }
+  }
+
+  .number-slider_value {
+    position: absolute;
+    top: -30px;
+    left: -5px;
+    display: inline-block;
+    border-radius: $base-border-radius;
+    width: 40px;
+    font-size: $small-font-size;
+    line-height: 1;
+    padding: 3px 1px 3px 0;
+    background-color: $brand-primary;
+    color: $white;
+    text-align: center;
+
+    &:after {
+      position: absolute;
+      content: '';
+      display: block;
+      left: 16px;
+      bottom: -5px;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid $brand-primary;
+
+    }
+  }
+
+  span.ui-slider-handle {
+    border-radius: 50% !important;
+    height: 32px;
+    width: 32px;
+    outline: 0;
+    margin-left: -16px;
+    top: -8px;
+  }
+
+  span.ui-slider-handle:hover,
+  span.ui-slider-handle:focus,
+  span.ui-slider-handle:active {
+    border: 1px solid $brand-primary !important;
+    background-color: $white !important;
+    outline: 0;
+  }
+}
