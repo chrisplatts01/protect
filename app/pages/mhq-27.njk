@@ -17,7 +17,7 @@
       <h1 class="h2">About how many times in your lifetime did you see things in this manner?</h1>
       {% call form.form('mhq-form', 'mhq-25.html', 'mhq-27.html', 'Go back', 'Continue') %}
         {{ form.checkbox('not-see-things-in-this-manner', 'not-see-things-in-this-manner', 'Do not know', 'Do not know') }}
-        {{ form.select_slider('see-things-in-this-manner', '', ['', '1', '2-5', '6-10', '11-20', '20+'], required=true) }}
+        {{ form.select_slider('see-things-in-this-manner', '', ['1', '2-5', '6-10', '11-20', '20+'], required=true) }}
         {{ form.skip_page('mhq-27.html', 'Prefer not to say') }}
       {% endcall %}
       <script>

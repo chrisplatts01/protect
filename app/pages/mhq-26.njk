@@ -16,7 +16,7 @@
     <article>
       <h1 class="h2">Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</h1>
       {% call form.form('mhq-form', 'mhq-25.html', 'mhq-27.html', 'Go back', 'Continue') %}
-        {{ form.select_slider('how-strong', '', ['', 'Feeble', 'OK', 'Strong'], required=true ) }}
+        {{ form.select_slider('how-strong', '', ['Feeble', 'OK', 'Strong'], required=true ) }}
         {{ form.skip_page('mhq-27.html', 'Prefer not to say') }}
       {% endcall %}
     </article>

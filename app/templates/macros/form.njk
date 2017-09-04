@@ -419,7 +419,6 @@ Field: Input field as JQuery UI Slider
     <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
     <div class="select-slider"{% if disabled %} disabled{% endif %}>
       <div class="select-slider_fill"></div>
-      {# % if values[0] === '' %}<div class="select-slider_fill-0" style="width: {{ 100 / (values | length - 1) }}%;"></div>{% endif % #}
 
       <div class="select-slider_ticks">
         {% for value in values -%}

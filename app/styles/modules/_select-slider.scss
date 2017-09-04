@@ -17,11 +17,6 @@
     // transition: width .1s ease-in-out;
   }
 
-  .select-slider_fill-0 {
-    @extend .select-slider_fill;
-    background-color: $mid-gray;
-  }
-
   select {
     visibility: hidden;
     position: absolute;

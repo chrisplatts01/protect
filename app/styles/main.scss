@@ -34,8 +34,82 @@
 @import 'modules/messages';
 
 // @import 'modules/panel';
-@import 'modules/panel-hero';
-@import 'modules/panel-display';
+// @import 'modules/panel-hero';
+// @import 'modules/panel-display';
 @import 'modules/panel-progress';
 @import 'modules/panel-overlay';
 @import 'modules/session';
+
+.header_sign-up {
+  display: none;
+  position: absolute;
+  top: 6px;
+  right: 24px;
+
+  @include breakpoint(medium) {
+    display: block;
+  }
+}
+
+.hero-image {
+  width: 100%;
+  height: 320px;
+  background: gray url('/images/unused/nurse-running.jpg') no-repeat 80% 50%;
+  background-size: cover;
+
+  @include breakpoint(medium) {
+    height: 480px;
+  }
+
+  @include breakpoint(large) {
+    height: 640px;
+  }
+}
+
+.content-section {
+  &--grey {
+    background-color: $vlight-gray;
+  }
+
+  &--blue {
+    color: $white;
+    background-color: $brand-secondary;
+
+    * {
+      color: $white;
+    }
+  }
+
+  &--green {
+    color: $white;
+    background-color: $brand-primary;
+
+    * {
+      color: $white;
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 768px;
+    padding: 48px 24px;
+    margin: 0 auto;
+  }
+
+  article {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+.button.button--grey {
+  color: $dark-gray !important;
+  background-color: $vlight-gray;
+  border-bottom: 4px solid $mid-gray;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: shade($vlight-gray, 10%);
+  }
+}
