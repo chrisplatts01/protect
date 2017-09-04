@@ -7,19 +7,35 @@
   .wrapper {
     padding: 0 $base-spacing;
 
-    @include breakpoint(large) {
+    @include breakpoint(medium) {
       @include flexbox($justify-content: space-between, $align-items: center);
     }
   }
 
   .site-logo {
     width: 100%;
-    max-width: 340px;
+    max-width: 225px;
     padding: 21px 0 25px;
 
     img {
       width: auto;
       height: 32px
+    }
+  }
+
+  .site-sign-up {
+    width: 100%;
+    max-width: 225px;
+    padding: 0 0 16px;
+    text-align: left;
+
+    @include breakpoint(medium) {
+      text-align: right;
+      padding: 0;
+    }
+
+    .button {
+      margin: 0;
     }
   }
 }

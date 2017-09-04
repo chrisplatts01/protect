@@ -447,6 +447,25 @@ jQuery.noConflict();
   });
 
   // -------------------------------------------------------------------------
+  // Handle home page accordions
+  // -------------------------------------------------------------------------
+  $('.accordion_button').on('click', function() {
+    var $button = $(this);
+    var $heading = $button.parent().find('.accordion_header');
+    var $content = $button.parent().find('.accordion_content');
+
+    $content.toggle('fast', function() {
+      if ($content.is(':hidden')) {
+        $button.find('button').removeClass('secondary').text('+');
+        $heading.css('font-weight', '400');
+      } else {
+        $button.find('button').addClass('secondary').text('-');
+        $heading.css('font-weight', '700');
+      }
+    });
+  });
+
+  // -------------------------------------------------------------------------
   // Handle responsive video
   // -------------------------------------------------------------------------
   var $videoFrames = $('#video-frame');
