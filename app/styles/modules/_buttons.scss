@@ -74,31 +74,18 @@ input[type='button'] {
   &.button--next {
     position: relative;
 
-    &:before {
-      position: absolute;
-      font-size: 48px;
-      font-weight: 100;
-      content: '\203a';
-      right: 12px;
-      top: 8px;
-      width: 12px;
-      overflow: visible;
+    &::after {
+      @include position-button-arrow('right');
     }
   }
 
   &.button--back {
     position: relative;
 
-    &:before {
-      position: absolute;
-      font-size: 48px;
-      font-weight: 100;
-      content: '\2039';
-      left: 12px;
-      top: 8px;
-      width: 12px;
-      overflow: visible;
+    &::before {
+      @include position-button-arrow('left');
     }
+
   }
 
   &.button--fast-forward {
@@ -114,30 +101,16 @@ input[type='button'] {
       background-color: shade($pale-blue, 10%)
     }
 
-    &:after {
-      position: absolute;
-      font-weight: 100;
-      font-size: 48px;
-      content: '\203a';
-      right: 12px;
-      top: 8px;
-      width: 12px;
-      overflow: visible;
+    &::after {
+      @include position-button-arrow('right');
     }
   }
 }
 
-.button-wrapper {
-  @include flexbox($justify-content: space-between);
-  margin: $small-spacing 0;
-
-  &.centred {
-    @include flexbox($justify-content: space-around);
-  }
-}
-
 button.button--skip {
+  position: relative;
   display: inline-block;
+  width: auto;
   background-color: transparent;
   text-align: left;
   border: none;
@@ -152,13 +125,18 @@ button.button--skip {
     text-decoration: underline;
   }
 
-  &:after {
-    position: relative;
-    top: 7px;
-    left: 8px;
-    font-weight: 100;
-    font-size: 48px;
-    content: '\203a';
+  &::after {
+      @include position-button-arrow('right');
+      right: -24px;
+      top: 12px;
   }
 }
 
+.button-wrapper {
+  @include flexbox($justify-content: space-between);
+  margin: $small-spacing 0;
+
+  &.centred {
+    @include flexbox($justify-content: space-around);
+  }
+}

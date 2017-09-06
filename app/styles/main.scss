@@ -10,6 +10,7 @@
 @import 'base/mixins/position';
 @import 'base/mixins/size';
 @import 'base/mixins/assign-inputs';
+@import 'base/mixins/position-button-arrow';
 
 @import 'base/base';
 @import 'base/typography';
@@ -239,15 +240,15 @@
   .label {
     width: 50%;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: '';
       position: absolute;
       top: -32px;
       left: 50%;
     }
 
-    &:before {
+    &::before {
       margin-left: -6px;
       width: 12px;
       height: 12px;
@@ -256,7 +257,7 @@
       border-radius: 50%;
     }
 
-    &:after {
+    &::after {
       margin-left: -1px;
       margin-top: 13px;
       width: 4px;
