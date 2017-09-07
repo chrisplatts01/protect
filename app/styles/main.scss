@@ -10,6 +10,7 @@
 @import 'base/mixins/position';
 @import 'base/mixins/size';
 @import 'base/mixins/assign-inputs';
+@import 'base/mixins/position-button-arrow';
 
 @import 'base/base';
 @import 'base/typography';
@@ -43,7 +44,7 @@
 .hero-image {
   width: 100%;
   height: 340px;
-  background: gray url('/images/protect-hero.png') no-repeat 50% 20%;
+  background: gray url('/images/protect-hero.jpg') no-repeat 50% 20%;
   background-size: cover;
 
   @include breakpoint(medium) {
@@ -200,7 +201,9 @@
 }
 
 .timelines {
-  @include flexbox($justify-content: space-between);
+  @include breakpoint(medium) {
+    @include flexbox($justify-content: space-between);
+  }
 }
 
 .timeline {
@@ -233,21 +236,26 @@
 }
 
 .timeline--1 {
-  width: 60%;
-  margin-right: 10%;
+  width: 100%;
+  margin: 0 0 36px 0;
+
+  @include breakpoint(medium) {
+    width: 60%;
+    margin: 0 10% 0 0;
+  }
 
   .label {
     width: 50%;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: '';
       position: absolute;
       top: -32px;
       left: 50%;
     }
 
-    &:before {
+    &::before {
       margin-left: -6px;
       width: 12px;
       height: 12px;
@@ -256,7 +264,7 @@
       border-radius: 50%;
     }
 
-    &:after {
+    &::after {
       margin-left: -1px;
       margin-top: 13px;
       width: 4px;
@@ -267,7 +275,11 @@
 }
 
 .timeline--2 {
-  width: 30%;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    width: 30%;
+  }
 
   .label {
     width: 100%;
