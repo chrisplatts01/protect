@@ -125,12 +125,15 @@ button.button--skip {
   }
 
   &::after {
-    position: relative;
+    // position: relative;
+    display: inline-block;
     content: '\203a';
     font-size: 48px;
     font-weight: 100;
-    right: -12px;
-    top: 6px;
+    margin-left: 12px;
+    margin-top: -12px;
+    vertical-align: middle;
+
   }
 }
 
