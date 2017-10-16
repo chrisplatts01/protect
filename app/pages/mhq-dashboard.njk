@@ -5,15 +5,69 @@
 
     <header>
       <div class="=section-title">
-      <div class="wrapper">
-        <h1>My progress</h1>
-      </div>
+        <div class="wrapper">
+          <h1>My progress</h1>
+        </div>
       </div>
     </header>
 
-    <article>
-      <h1 class="h2">HEADING</h1>
-      <p>BODY_TEXT</p>
+    <nav class="tab-nav">
+      <div class="wrapper">
+        {# { form.select_group('tab-select', '', ['Questionnaires', 'Cognitive tests', 'Brain training']) } #}
+        <ul>
+          <li>Questionnaires</li>
+          <li>Cognitive tests</li>
+          <li>Brain training</li>
+        </ul>
+      </div>
+    </nav>
+
+    <article id="tab-questionnaires" class="tab-content">
+      <ol class="questionnaires-progress">
+        <li class="completed">1</li>
+        <li class="in-progress">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+      </ol>
+      <h1 class="h2">Tab 1</h1>
+      <p>Tab 1 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec id elit non mi porta gravida at eget metus.</p>
+    </article>
+
+    <article id="tab-cognitive-tests" class="tab-content">
+      <h1 class="h2">Tab 2</h1>
+      <p>Tab 2 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec id elit non mi porta gravida at eget metus.</p>
+    </article>
+
+    <article id="tab-brain-training" class="tab-content">
+      <h1 class="h2">Tab 3</h1>
+      <p>Tab 3 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec id elit non mi porta gravida at eget metus.</p>
     </article>
   </section>
+
+  <script>
+    (function($) {
+      $tabSelect = $('.tab-nav').find('li');
+      $tabContent = $('.tab-content');
+
+      $tabContent.hide();
+      $tabContent.eq(0).show();
+      $tabSelect.eq(0).addClass('selected');
+
+      $tabSelect.on('click', function() {
+        var $this = $(this);
+        var index;
+
+        index = $tabSelect.index($this);
+
+        $tabSelect.removeClass('selected');
+        $this.addClass('selected');
+
+        $tabContent.fadeOut('fast');
+        $tabContent.eq(index).fadeIn('fast');
+      })
+    })(jQuery);
+  </script>
 {% endblock %}
