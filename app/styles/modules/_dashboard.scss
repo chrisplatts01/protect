@@ -99,9 +99,16 @@
     }
   }
 
+  article {
+    width: 100%;
+    max-width: 520px;
+    padding: $base-spacing $base-spacing 40px;
+    margin: 0 auto;
+  }
+
   ol.questionnaires-progress {
     @include clearfix();
-    margin: 12px 0;
+    margin: 12px 0 40px;
     padding: 0;
 
     li {
@@ -140,11 +147,43 @@
     }
   }
 
-  article {
-    width: 100%;
-    max-width: 520px;
-    padding: $base-spacing $base-spacing 40px;
+  .subsection {
+    margin: 12px 0;
+    padding: 12px 0;
+    border-bottom: 1px solid $light-gray;
+
+    &:first-child {
+      margin-top: 48px;
+    }
+  }
+
+  .subsection_icon {
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
+    background: url(/images/section-icon-blank.svg) no-repeat 0 0;
+    background-size: cover;
+
+    @include breakpoint(medium) {
+      margin: 6px 0 0;
+      float: left;
+    }
+  }
+
+  .subsection_content {
+    margin: 12px 0 0;
+
+    h2, p {
+      text-align: center;
+    }
+
+    @include breakpoint(medium) {
+      margin: 0 0 0 124px;
+
+      h2, p {
+        text-align: left;
+      }
+    }
   }
 }
 
