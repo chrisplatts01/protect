@@ -106,14 +106,14 @@
     margin: 0 auto;
   }
 
-  ol.questionnaires-progress {
+  ol.progress-bar {
     @include clearfix();
     margin: 12px 0 40px;
     padding: 0;
 
     li {
       float: left;
-      width: 13.9%;
+      // width: 13.9%;
       margin-right: 1px;
       padding: 9px 0;
       text-align: center;
@@ -135,15 +135,28 @@
         border-bottom-right-radius: $base-border-radius;
       }
 
-      &.in-progress {
+      &.is-paused {
         color: $brand-secondary;
         background-color: $pale-blue;
       }
 
-      &.completed {
+      &.is-inprogress {
+        color: $brand-secondary;
+        background-color: $pale-blue;
+      }
+
+      &.is-completed {
         color: $white;
         background-color: $brand-primary;
       }
+    }
+
+    &.progress-bar--questionnaires li {
+      width: 13.9%;
+    }
+
+    &.progress-bar--cognitive-tests li {
+      width: 33%;
     }
   }
 
@@ -155,18 +168,287 @@
     &:first-child {
       margin-top: 48px;
     }
+
+    .subsection_icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      color: $white;
+      font-size: 60px;
+      font-weight: 700;
+      text-align: center;
+      padding-top: 32px;
+      background: url('/images/blank-icon.svg') no-repeat 0 0;
+      background-size: cover;
+
+      @include breakpoint(medium) {
+        margin: 6px 0 0;
+        float: left;
+      }
+    }
   }
 
-  .subsection_icon {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    background: url(/images/section-icon-blank.svg) no-repeat 0 0;
-    background-size: cover;
+  .subsection--medical {
+    .subsection_icon {
+      background-image: url('/images/medical-icon.svg');
+    }
 
-    @include breakpoint(medium) {
-      margin: 6px 0 0;
-      float: left;
+    &.is-inprogress {
+      .subsection_icon {
+        background-image: url('/images/medical-inprogress-icon.svg');
+      }
+    }
+
+    &.is-paused {
+      .subsection_icon {
+        background-image: url('/images/medical-paused-icon.svg');
+      }
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/medical-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--health {
+    .subsection_icon {
+      background-image: url('/images/health-icon.svg');
+    }
+
+    &.is-inprogress {
+      .subsection_icon {
+        background-image: url('/images/health-inprogress-icon.svg');
+      }
+    }
+
+    &.is-paused {
+      .subsection_icon {
+        background-image: url('/images/health-paused-icon.svg');
+      }
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/health-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--lifestyle {
+    .subsection_icon {
+      background-image: url('/images/lifestyle-icon.svg');
+    }
+
+    &.is-inprogress {
+      .subsection_icon {
+        background-image: url('/images/lifestyle-inprogress-icon.svg');
+      }
+    }
+
+    &.is-paused {
+      .subsection_icon {
+        background-image: url('/images/lifestyle-paused-icon.svg');
+      }
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/lifestyle-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--digital-span {
+    .subsection_icon {
+      background-image: url('/images/digital-span-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/digital-span-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--paired-associates {
+    .subsection_icon {
+      background-image: url('/images/paired-associates-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/paired-associates-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--self-ordered-search {
+    .subsection_icon {
+      background-image: url('/images/self-ordered-search-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/self-ordered-search-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--verbal-reasoning {
+    .subsection_icon {
+      background-image: url('/images/verbal-reasoning-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/verbal-reasoning-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--balloons {
+    .subsection_icon {
+      background-image: url('/images/balloons-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/balloons-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--crates {
+    .subsection_icon {
+      background-image: url('/images/crates-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/crates-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--loop-the-loop {
+    .subsection_icon {
+      background-image: url('/images/loop-the-loop-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/loop-the-loop-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--numbers {
+    .subsection_icon {
+      background-image: url('/images/numbers-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/numbers-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--object-matching {
+    .subsection_icon {
+      background-image: url('/images/object-matching-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/object-matching-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--odd-one-out {
+    .subsection_icon {
+      background-image: url('/images/odd-one-out-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/odd-one-out-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--pairs {
+    .subsection_icon {
+      background-image: url('/images/pairs-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/pairs-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--pictures {
+    .subsection_icon {
+      background-image: url('/images/pictures-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/pictures-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--scanner {
+    .subsection_icon {
+      background-image: url('/images/scanner-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/scanner-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--see-saw {
+    .subsection_icon {
+      background-image: url('/images/see-saw-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/see-saw-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--sliders {
+    .subsection_icon {
+      background-image: url('/images/sliders-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/sliders-completed-icon.svg');
+      }
+    }
+  }
+
+  .subsection--tower-of-london {
+    .subsection_icon {
+      background-image: url('/images/tower-of-london-icon.svg');
+    }
+
+    &.is-completed {
+      .subsection_icon {
+        background-image: url('/images/tower-of-london-completed-icon.svg');
+      }
     }
   }
 

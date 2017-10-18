@@ -23,17 +23,17 @@
     </nav>
 
     <article id="tab-questionnaires" class="tab-content">
-      <ol class="questionnaires-progress">
-        <li class="completed">1</li>
-        <li class="in-progress">2</li>
-        <li>3</li>
-        <li>4</li>
+      <ol class="progress-bar progress-bar--questionnaires">
+        <li class="is-completed">1</li>
+        <li class="is-inprogress">2</li>
+        <li class="is-paused">3</li>
+        <li class="is-completed">4</li>
         <li>5</li>
         <li>6</li>
         <li>7</li>
       </ol>
 
-      <section id="session-1" class="subsection">
+      <section class="subsection subsection--lifestyle is-completed">
         <div class="subsection_icon"></div>
         <div class="subsection_content">
           <h2>Section 1: Lifestyle questions</h2>
@@ -41,31 +41,33 @@
         </div>
       </section>
 
-      <section id="session-2" class="subsection">
+      <section class="subsection subsection--lifestyle is-inprogress">
         <div class="subsection_icon"></div>
         <div class="subsection_content">
           <h2>Section 2: Lifestyle questions</h2>
-          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <p>In progess etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin session</a>
         </div>
       </section>
 
-      <section id="session-3" class="subsection">
+      <section class="subsection subsection--medical is-paused">
         <div class="subsection_icon"></div>
         <div class="subsection_content">
           <h2>Section 3: Medical questions</h2>
-          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <p>Completed etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next tertiary" href="#">Continue session</a>
         </div>
       </section>
 
-      <section id="session-4" class="subsection">
+      <section class="subsection subsection--health is-completed">
         <div class="subsection_icon"></div>
         <div class="subsection_content">
           <h2>Section 4: Medical health questions</h2>
-          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <p>In progress etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
         </div>
       </section>
 
-      <section id="session-5" class="subsection">
+      <section class="subsection subsection--medical">
         <div class="subsection_icon"></div>
         <div class="subsection_content">
           <h2>Section 5: Medical questions</h2>
@@ -73,7 +75,7 @@
         </div>
       </section>
 
-      <section id="session-6" class="subsection">
+      <section class="subsection subsection--lifestyle">
         <div class="subsection_icon"></div>
         <div class="subsection_content">
           <h2>Section 6: Lifestyle questions</h2>
@@ -81,7 +83,7 @@
         </div>
       </section>
 
-      <section id="session-7" class="subsection">
+      <section class="subsection subsection--medical">
         <div class="subsection_icon"></div>
         <div class="subsection_content">
           <h2>Section 7: Medical questions</h2>
@@ -92,13 +94,157 @@
     </article>
 
     <article id="tab-cognitive-tests" class="tab-content">
-      <h1 class="h2">Tab 2</h1>
-      <p>Tab 2 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec id elit non mi porta gravida at eget metus.</p>
+      <ol class="progress-bar progress-bar--cognitive-tests">
+        <li class="is-completed">1</li>
+        <li>2</li>
+        <li>3</li>
+      </ol>
+      <p class="centred">All three rounds of cognitive tests must be completed within seven days.</p>
+      <p class="centred"><b>X days remaining to complete tests.</b></p>
+      <div class="centred"><a class="button button--next" href="#">Begin session</a></div>
+      <hr>
+
+      <section class="subsection subsection--digital-span">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Digital span</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--paired-associates">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Paired Associates Learning</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--self-ordered-search">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Self Ordered Search</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--verbal-reasoning">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Verbal Reasoning</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
     </article>
 
     <article id="tab-brain-training" class="tab-content">
-      <h1 class="h2">Tab 3</h1>
-      <p>Tab 3 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec id elit non mi porta gravida at eget metus.</p>
+      <section class="subsection subsection--balloons is-completed">
+        <div class="subsection_icon">00</div>
+        <div class="subsection_content">
+          <h2>Balloons</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Continue training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--crates">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Crates</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--loop-the-loop">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Loop the Loop</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--numbers">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Numbers</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--object-matching">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Object Matching</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--odd-one-out">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Odd One Out</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--pairs">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Pairs</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--pictures">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Pictures</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--scanner">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Scanner</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--see-saw">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>See-saw</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--sliders">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Sliders</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--tower-of-london">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Tower of London</h2>
+          <p>Completed tiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
     </article>
   </section>
 

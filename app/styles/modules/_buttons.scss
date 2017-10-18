@@ -60,6 +60,17 @@ input[type='button'] {
     }
   }
 
+  &.tertiary {
+    background-color: $pale-blue;
+    border-bottom-color: $blue;
+    color: $blue !important;
+
+    &:hover,
+    &:focus {
+      background-color: shade($pale-blue, 10%)
+    }
+  }
+
   &.warning {
     background-color: $red;
     color: $white !important;
