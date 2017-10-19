@@ -156,7 +156,7 @@
     }
 
     &.progress-bar--cognitive-tests li {
-      width: 33%;
+      width: 32.9%;
     }
   }
 
@@ -171,7 +171,7 @@
 
     .subsection_icon {
       width: 100px;
-      height: 100px;
+      min-height: 100px;
       margin: 0 auto;
       color: $white;
       font-size: 60px;
@@ -179,11 +179,16 @@
       text-align: center;
       padding-top: 32px;
       background: url('/images/blank-icon.svg') no-repeat 0 0;
-      background-size: cover;
+      background-size: 100px;
 
       @include breakpoint(medium) {
         margin: 6px 0 0;
         float: left;
+      }
+
+      img.mini-progress {
+        position: relative;
+        top: 70px;
       }
     }
   }
@@ -454,6 +459,7 @@
 
   .subsection_content {
     margin: 12px 0 0;
+    text-align: center;
 
     h2, p {
       text-align: center;
@@ -461,6 +467,7 @@
 
     @include breakpoint(medium) {
       margin: 0 0 0 124px;
+      text-align: left;
 
       h2, p {
         text-align: left;
