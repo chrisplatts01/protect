@@ -312,6 +312,17 @@ input[type='checkbox']:disabled + label::before {
   padding-top: 0;
 }
 
+.form-field-group--date-group {
+  @include clearfix();
+
+  .form-field {
+    label {
+      color: $dark-gray;
+      font-weight: 700;
+    }
+  }
+}
+
 .form-actions {
   margin: $base-spacing 0 $small-spacing;
 

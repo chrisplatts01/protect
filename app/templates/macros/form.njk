@@ -271,6 +271,41 @@ Field group: Select buttons using radio
 
 {#
 ========================================
+Field group: Date group using number
+             fields
+========================================
+#}
+{% macro date_group(
+    name ="FIELD_NAME",
+    label = "",
+    values =["OPTION-1"],
+    required = "",
+    disabled = "",
+    validation = ""
+  )
+%}
+<div class="form-field-group form-field-group--date-group">
+  {% if label %}<label>{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>{% endif %}
+
+  <div class="form-field form-field--day" style="width: 60px; float: left; margin-right: 12px;">
+    <label for="{{ name }}-day">Day</label>
+    <input id="{{ name }}-day" name="{{ name }}-day" type="text" placeholder="DD" {% if required %} required{% endif %}>
+  </div>
+
+  <div class="form-field form-field--month" style="width: 60px; float: left; margin-right: 12px;">
+    <label for="{{ name }}-month">Month</label>
+    <input id="{{ name }}-month" name="{{ name }}-month" type="text" placeholder="MM" {% if required %} required{% endif %}>
+  </div>
+
+  <div class="form-field form-field--year" style="width: 120px; float: left;">
+    <label for="{{ name }}-year">Year</label>
+    <input id="{{ name }}-year" name="{{ name }}-year" type="text" placeholder="YYYY" {% if required %} required{% endif %}>
+  </div>
+</div>
+{% endmacro %}
+
+{#
+========================================
 Field: Select field
 ========================================
 #}
