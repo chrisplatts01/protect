@@ -15,7 +15,7 @@
 
     <article>
       <h1 class="h2">Gender</h1>
-      {% call form.form('mhq-form', 'mhq-16.html', 'mhq-17a.html', 'Go back', 'Continue') %}
+      {% call form.form('mhq-form', 'mhq-16a.html', 'mhq-17a.html', 'Go back', 'Continue') %}
         {{ form.gender('gender', required=true) }}
         {{ form.skip_page('mhq-17a.html', 'Prefer not to say') }}
       {% endcall %}

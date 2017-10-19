@@ -15,7 +15,7 @@
 
     <article>
       <h1 class="h2">About how old were you the FIRST time you had a period of two weeks like this? (Whether or not you received any help for it.)</h1>
-      {% call form.form('mhq-form', 'mhq-14.html', 'mhq-16.html', 'Go back', 'Continue') %}
+      {% call form.form('mhq-form', 'mhq-14.html', 'mhq-16a.html', 'Go back', 'Continue') %}
         {{ form.text(type='number', 'how-old', placeholder='e.g. 18', required=true) }}
         {{ form.skip_page('mhq-16.html', 'Prefer not to say') }}
       {% endcall %}
