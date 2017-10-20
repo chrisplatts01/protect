@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 #page-header {
-  // position: relative;
   background-color: $brand-primary;
 
   .wrapper {
@@ -23,19 +22,73 @@
     }
   }
 
-  .site-sign-up {
+  .site-security {
     width: 100%;
     max-width: 225px;
     padding: 0 0 16px;
     text-align: left;
 
     @include breakpoint(medium) {
+      width: auto;
       text-align: right;
       padding: 0;
     }
 
-    .button {
+    a.sign-up {
       margin: 0;
+      display: inline;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a.login {
+      margin: 0;
+      display: inline;
+
+      &:link, &:visited, &:active {
+        color: $white;
+        padding-right: 24px;
+      }
+    }
+  }
+}
+
+#site-navigation {
+  background-color: #0f796b;
+
+  .wrapper {}
+
+  ul {
+    @include flexbox($justify-content: stretch, $align-items: center);
+    list-style: none;
+    padding: 6px 0;
+    margin: 0;
+
+    li {
+      padding: 0;
+      width: 25%;
+      text-align: center;
+      margin: 0;
+      border-right: 1px solid $white;
+
+      &::before { content: none; }
+      &::after { content: none; }
+
+      &:last-child {
+        border: 0;
+      }
+
+      a {
+        display: block;
+        color: $white;
+        padding: 6px 0;
+        text-decoration: none;
+
+        &:hover, &:focus {
+          text-decoration: underline;
+        }
+      }
+
     }
   }
 }

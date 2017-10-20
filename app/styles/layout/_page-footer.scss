@@ -1,37 +1,94 @@
 @charset "UTF-8";
 
+#newsletter-signup {
+  background-color: $vlight-gray;
+  border-top: 1px solid $light-gray;
+
+
+  form {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 24px;
+
+    legend.h1 {
+      margin: 48px 0 24px;
+    }
+
+    input {
+      width: 100%;
+
+      @include breakpoint(large) {
+        float: left;
+        width: 300px
+      }
+    }
+
+    button {
+      width: 100%;
+
+      @include breakpoint(large) {
+        float: right;
+        width: 160px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
 #page-footer {
   @include clearfix;
   bottom: 0;
   width: 100%;
   padding: 0 0 $small-spacing ;
-  background-color: $brand-secondary;
+  background-color: $dark-gray;
   color: $white;
 
-  .logos {
-    padding: 0 $base-spacing;
+  .footer-info {
+    @include flexbox($justify-content: space-between);
+    padding: 24px;
 
-    @include breakpoint(medium) {
-      @include flexbox($justify-content: space-between, $align-items: center);
+    .project-logos {
+      width: 100%;
+      padding-bottom: 24px;
+      border-bottom: 1px solid $white;
+
+      @include breakpoint(large) {
+        width: 33%;
+        border-bottom: none;
+      }
+    }
+
+    .contact-address,
+    .contact-other {
+      width: 100%;
+
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+
+      @include breakpoint(large) {
+        width: 33%;
+      }
+    }
+
+    .contact-other {
+      margin-top: 44px;
     }
   }
 
-  .sponsor-logos {
-    padding: $base-spacing 0;
-
-    img {
-      padding: 0 $small-spacing / 2 0
-    }
+  h2, h3, p, a {
+    color: $white;
   }
 
-  .project-logos {
-    border-top: 1px solid $white;
-    padding: $base-spacing 0;
+  h2 {
+    margin-bottom: 12px;
+  }
 
-    @include breakpoint(medium) {
-      border: none;
-      padding: 0 0 $small-spacing 0;
-    }
+  h3, p, a {
+    font-size: $small-font-size;
+    margin: 0;
+    line-height: 1.5;
   }
 
   .utility-nav {
@@ -39,7 +96,7 @@
     line-height: $small-line-height;
     border-top: 1px solid $white;
     margin: 0 $base-spacing;
-    padding: $base-spacing 0 $small-spacing;
+    padding: $small-spacing 0 $base-spacing;
 
     ol {
       list-style: none;
@@ -75,10 +132,4 @@
     }
 
   }
-}
-
-.sticky-footer #page-footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }
