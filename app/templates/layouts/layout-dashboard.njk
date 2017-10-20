@@ -24,9 +24,13 @@
 </head>
 <body>
 
+{% include "includes/page-header.njk" %}
+
 {% block content %}
 {% endblock %}
 
-  <script src="/scripts/main.js"></script>
+{% include "includes/page-footer.njk" %}
+
+<script src="/scripts/main.js"></script>
 </body>
 </html>

@@ -35,13 +35,13 @@
 <body>
 
 <div class="page-wrapper">
-  {% include "includes/page-header-home.njk" %}
+  {% include "includes/page-header.njk" %}
 
   <main id="page-content" role="main">
     {% block content %}{% endblock %}
   </main>
 
-  {# % include "includes/page-footer.njk" % #}
+  {% include "includes/page-footer.njk" %}
 </div>
 
 {% include "includes/exit-home.njk" %}
