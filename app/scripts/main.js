@@ -2,66 +2,105 @@ jQuery.noConflict();
 
 
 (function($) {
-    // -------------------------------------------------------------------------
-    // Custom validation methods
-    // -------------------------------------------------------------------------
-    $.validator.addMethod("mincheck", function(value, element, params) {
-      var name = $(element).attr('name');
-      var selector = '[name="' + name + '"]:checked';
-      var elementsChecked = $(selector).length;
+  // -------------------------------------------------------------------------
+  // Mobile/desktop menu behavioue
+  // -------------------------------------------------------------------------
+  var $window = $(window);
+  var $menuToggle = $('#menu-toggle');
+  var $siteSecurity = $('#site-security');
+  var $siteNavigation = $('#site-navigation');
 
-      return elementsChecked >= params;
-    }, "At least {0} boxes must be checked");
+  if ($window.width() < 768) {
+    $siteSecurity.hide();
+    $siteNavigation.hide();
+  }
 
-    $.validator.addMethod("maxcheck", function(value, element, params) {
-      var name = $(element).attr('name');
-      var selector = '[name="' + name + '"]:checked';
-      var elementsChecked = $(selector).length;
+  $window.on('resize', function() {
+    if (($window.width() < 768) && ($menuToggle.hasClass('open') === false)) {
+      $siteSecurity.hide();
+      $siteNavigation.hide();
+    } else {
+      $siteSecurity.show();
+      $siteNavigation.show();
+    }
+  });
 
-      return elementsChecked <= params;
-    }, "At least {0} boxes must be checked");
+  $menuToggle.on('click', function() {
+    var $this = $(this);
 
-    // -------------------------------------------------------------------------
-    // Handle form validation - submit button disabled until all fields valid
-    // -------------------------------------------------------------------------
-    var checkIfValid = function() {
-      var $mhqForm = $('#mhq-form');
-      var $submitButton;
-      var isValid = true;
+    $this.toggleClass('open');
 
-      if ($mhqForm.length) {
-        $submitButton = $mhqForm.find('.button--next');
-        isValid = $mhqForm.valid();
+    if ($this.hasClass('open')) {
+      $this.text('Close');
+      $siteSecurity.slideDown('slow');
+      $siteNavigation.slideDown('slow');
+    } else {
+      $this.text('Menu');
+      $siteSecurity.slideUp('slow');
+      $siteNavigation.slideUp('slow');
+    }
+  });
 
-        if (isValid) {
-          $submitButton.removeClass('disabled');
-        } else {
-          $submitButton.addClass('disabled');
-        }
+  // -------------------------------------------------------------------------
+  // Custom validation methods
+  // -------------------------------------------------------------------------
+  $.validator.addMethod('mincheck', function(value, element, params) {
+    var name = $(element).attr('name');
+    var selector = '[name="' + name + '"]:checked';
+    var elementsChecked = $(selector).length;
+
+    return elementsChecked >= params;
+  }, 'At least {0} boxes must be checked');
+
+  $.validator.addMethod('maxcheck', function(value, element, params) {
+    var name = $(element).attr('name');
+    var selector = '[name="' + name + '"]:checked';
+    var elementsChecked = $(selector).length;
+
+    return elementsChecked <= params;
+  }, 'At least {0} boxes must be checked');
+
+  // -------------------------------------------------------------------------
+  // Handle form validation - submit button disabled until all fields valid
+  // -------------------------------------------------------------------------
+  var checkIfValid = function() {
+    var $mhqForm = $('#mhq-form');
+    var $submitButton;
+    var isValid = true;
+
+    if ($mhqForm.length) {
+      $submitButton = $mhqForm.find('.button--next');
+      isValid = $mhqForm.valid();
+
+      if (isValid) {
+        $submitButton.removeClass('disabled');
+      } else {
+        $submitButton.addClass('disabled');
       }
-    };
+    }
+  };
 
-    var validator = $('#mhq-form').validate({
-      errorPlacement: function(error, element) {
-        error.appendTo(element.parent('.form-field'));
-      },
-      errorElement: 'div',
-      onfocusout: function(el, ev) {
-        checkIfValid();
-      },
-      onkeyup: function(el, ev) {
-        checkIfValid();
-      },
-      onclick: function(el, ev) {
-        checkIfValid();
-      },
-      onsubmit: function(el, ev) {
-        checkIfValid();
-        form.submit();
-      },
-      rules: {},
-    });
-    checkIfValid();
+  var validator = $('#mhq-form').validate({
+    errorPlacement: function(error, element) {
+      error.appendTo(element.parent('.form-field'));
+    },
+    errorElement: 'div',
+    onfocusout: function(el, ev) {
+      checkIfValid();
+    },
+    onkeyup: function(el, ev) {
+      checkIfValid();
+    },
+    onclick: function(el, ev) {
+      checkIfValid();
+    },
+    onsubmit: function(el, ev) {
+      checkIfValid();
+      form.submit();
+    },
+    rules: {},
+  });
+  checkIfValid();
 
   // ---------------------------------------------------------------------------
   // Handle sticky footer

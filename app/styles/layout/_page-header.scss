@@ -30,11 +30,11 @@
 #site-menu {
   .menu-toggle {
     position: absolute;
-    top: 24px;
+    top: 20px;
     right: 24px;
     color: white;
     font-size: 20px;
-    border-bottom: 1px solid $white;
+    text-decoration: underline;
 
     // @include breakpoint(medium) {
     //   font-size: 32px;
@@ -49,12 +49,6 @@
     background-color: $brand-primary;
     padding: 0 24px;
 
-    @include breakpoint(large) {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
     .wrapper {
       border-top: 1px solid $white;
       padding: 16px 0;
@@ -63,6 +57,8 @@
       @include breakpoint(large) {
         border-top: 0;
         text-align: right;
+        margin-top: -80px;
+        padding-right: 24px;
       }
     }
 
@@ -124,9 +120,9 @@
             text-decoration: underline;
           }
 
-          @include breakpoint(medium) {
-            // font-size: 32px;
-          }
+          // @include breakpoint(medium) {
+          //   font-size: 32px;
+          // }
         }
       }
 
