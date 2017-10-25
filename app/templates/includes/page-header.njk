@@ -29,9 +29,25 @@
 <script>
   (function($) {
 
+    var $window = $(window);
     var $menuToggle = $('#menu-toggle');
     var $siteSecurity = $('#site-security');
     var $siteNavigation = $('#site-navigation');
+
+    if ($window.width() < 768) {
+      $siteSecurity.hide();
+      $siteNavigation.hide();
+    }
+
+    $window.on('resize', function() {
+      if (($window.width() < 768) && ($menuToggle.hasClass('open') === false)) {
+        $siteSecurity.hide();
+        $siteNavigation.hide();
+      } else {
+        $siteSecurity.show();
+        $siteNavigation.show();
+      }
+    });
 
     $menuToggle.on('click', function() {
       var $this = $(this);

@@ -18,7 +18,7 @@
     input {
       width: 100%;
 
-      @include breakpoint(large) {
+      @include breakpoint(medium) {
         float: left;
         width: 300px
       }
@@ -27,7 +27,7 @@
     button {
       width: 100%;
 
-      @include breakpoint(large) {
+      @include breakpoint(medium) {
         float: right;
         width: 160px;
         margin-top: 4px;
@@ -51,6 +51,7 @@
     .project-logos {
       width: 100%;
       padding-bottom: 24px;
+      margin-bottom: $small-spacing;
       border-bottom: 1px solid $white;
 
       @include breakpoint(large) {
@@ -70,6 +71,10 @@
       @include breakpoint(large) {
         width: 33%;
       }
+    }
+
+    .contact-address {
+      padding-top: 0;
     }
 
     .contact-other {
@@ -106,11 +111,13 @@
       li {
         counter: none;
         font-size: $small-font-size;
+        padding: 0;
+        margin: 0;
         line-height: 1;
 
         @include breakpoint(medium) {
           display: inline-block;
-          padding: 0 $small-spacing;
+          padding: 0 4px 0 2px;
           margin: 0;
           border-right: 1px solid $white;
 
@@ -127,6 +134,14 @@
         &::before,
         &::after {
           display: none;
+        }
+
+        a {
+          text-decoration: none;
+
+          &:hover, &:focus {
+            text-decoration: underline;
+          }
         }
       }
     }

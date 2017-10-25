@@ -46,12 +46,10 @@
   }
 
   .site-security {
-    display: none;
     background-color: $brand-primary;
     padding: 0 24px;
 
     @include breakpoint(large) {
-      display: block;
       position: absolute;
       top: 0;
       right: 0;
@@ -95,7 +93,6 @@
   }
 
   .site-navigation {
-    display: none;
     background-color: $dark-green;
 
     ul {
@@ -107,6 +104,7 @@
         margin: 0;
         padding: 0;
         border-bottom: 1px solid $white;
+        text-align: center;
 
         &::before { content: none; }
         &::after { content: none; }
@@ -118,7 +116,7 @@
         a {
           display: block;
           color: $white;
-          font-size: 20px;
+          font-size: 16px;
           text-decoration: none;
           padding: 12px 0;
 
@@ -134,7 +132,6 @@
 
       @include breakpoint(large) {
         @include flexbox($justify-content: stretch, $align-items: center);
-        display: block;
         padding: 8px 0;
         margin: 0;
 
