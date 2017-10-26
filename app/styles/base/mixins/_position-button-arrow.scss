@@ -1,16 +1,15 @@
 @mixin position-button-arrow( $direction: 'right' ) {
-  position: absolute;
+  position: relative;
   display: inline-block;
   font-size: 48px;
   font-weight: 100;
-  top: 8px;
+  line-height: 0;
+  top: 6px;
 
   @if ( $direction == 'right' ) {
-    content: '\203a';
-    right: 12px;
+    content: '\00a0\203a';
   }
   @else {
-    content: '\2039';
-    left: 12px;
+    content: '\2039\00a0';
   }
 }
