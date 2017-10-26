@@ -17,7 +17,7 @@ input[type='button'] {
   -webkit-font-smoothing: antialiased;
   font-weight: $base-font-weight;
   line-height: 18px;
-  padding: $small-spacing;
+  padding: $small-spacing $small-spacing / 2;
   margin: $small-spacing 0;
   text-align: center;
   text-decoration: none;
@@ -84,6 +84,8 @@ input[type='button'] {
 
   &.button--next {
     position: relative;
+    text-align: left;
+    padding-left: $base-spacing;
 
     &::after {
       @include position-button-arrow('right');
@@ -92,6 +94,8 @@ input[type='button'] {
 
   &.button--back {
     position: relative;
+    text-align: right;
+    padding-right: $base-spacing;
 
     &::before {
       @include position-button-arrow('left');
@@ -101,7 +105,8 @@ input[type='button'] {
 
   &.button--fast-forward {
     position: relative;
-    padding: 12px 24px 12px 12px;
+    padding: $small-spacing $base-spacing;
+    text-align: left;
     width: 100%;
     background-color: $pale-blue;
     border-bottom-color: $blue;
