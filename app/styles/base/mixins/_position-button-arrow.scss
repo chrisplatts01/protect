@@ -8,10 +8,10 @@
 
   @if ( $direction == 'right' ) {
     content: '\203a';
-    right: $base-spacing;
+    right: 16px;
   }
   @else {
     content: '\2039';
-    left: $base-spacing;
+    left: 16px;
   }
 }
