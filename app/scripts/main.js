@@ -1,7 +1,7 @@
 jQuery.noConflict();
 
 
-(function($) {
+(function ($) {
   // -------------------------------------------------------------------------
   // Mobile/desktop menu behavioue
   // -------------------------------------------------------------------------
@@ -15,7 +15,7 @@ jQuery.noConflict();
     $siteNavigation.hide();
   }
 
-  $window.on('resize', function() {
+  $window.on('resize', function () {
     if (($window.width() < 768) && ($menuToggle.hasClass('open') === false)) {
       $siteSecurity.hide();
       $siteNavigation.hide();
@@ -25,7 +25,7 @@ jQuery.noConflict();
     }
   });
 
-  $menuToggle.on('click', function() {
+  $menuToggle.on('click', function () {
     var $this = $(this);
 
     $this.toggleClass('open');
@@ -44,7 +44,7 @@ jQuery.noConflict();
   // -------------------------------------------------------------------------
   // Custom validation methods
   // -------------------------------------------------------------------------
-  $.validator.addMethod('mincheck', function(value, element, params) {
+  $.validator.addMethod('mincheck', function (value, element, params) {
     var name = $(element).attr('name');
     var selector = '[name="' + name + '"]:checked';
     var elementsChecked = $(selector).length;
@@ -52,7 +52,7 @@ jQuery.noConflict();
     return elementsChecked >= params;
   }, 'At least {0} boxes must be checked');
 
-  $.validator.addMethod('maxcheck', function(value, element, params) {
+  $.validator.addMethod('maxcheck', function (value, element, params) {
     var name = $(element).attr('name');
     var selector = '[name="' + name + '"]:checked';
     var elementsChecked = $(selector).length;
@@ -63,7 +63,7 @@ jQuery.noConflict();
   // -------------------------------------------------------------------------
   // Handle form validation - submit button disabled until all fields valid
   // -------------------------------------------------------------------------
-  var checkIfValid = function() {
+  var checkIfValid = function () {
     var $mhqForm = $('#mhq-form');
     var $submitButton;
     var isValid = true;
@@ -81,20 +81,20 @@ jQuery.noConflict();
   };
 
   var validator = $('#mhq-form').validate({
-    errorPlacement: function(error, element) {
+    errorPlacement: function (error, element) {
       error.appendTo(element.parent('.form-field'));
     },
     errorElement: 'div',
-    onfocusout: function(el, ev) {
+    onfocusout: function (el, ev) {
       checkIfValid();
     },
-    onkeyup: function(el, ev) {
+    onkeyup: function (el, ev) {
       checkIfValid();
     },
-    onclick: function(el, ev) {
+    onclick: function (el, ev) {
       checkIfValid();
     },
-    onsubmit: function(el, ev) {
+    onsubmit: function (el, ev) {
       checkIfValid();
       form.submit();
     },
@@ -107,37 +107,105 @@ jQuery.noConflict();
   // ---------------------------------------------------------------------------
   var resizeTimer;
 
-  $(window).bind('load', function() {
+  $(window).bind('load', function () {
     /**
      * Set sticky footer status
      */
     function stickyFooter() {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() {
-        var $sectionFooter = $('#page-content').find('footer');
+      resizeTimer = setTimeout(function () {
+        var $pageHeader = $('#page-header');
+        var $siteMenu = $('#site-menu')
+        var $pageContent = $('#page-content');
         var $pageFooter = $('#page-footer');
+        var $newsletterSignup = $('#newsletter-signup')
+        var $sectionFooter = $pageContent.find('footer');
 
-        if ($(window).height() < $(document).height()) {
-          $pageFooter.css({'position': 'static', 'width': 'auto', 'bottom': 'auto'});
-          $sectionFooter.css({'position': 'relative', 'width': 'auto', 'bottom': 'auto'});
-          $('#page-content').css({'padding-bottom': '0'});
+        var windowHeight = $(window).height();
+        var documentHeight = $(document).height();
+        // var headerHeight = $pageHeader.height();
+        // var contentHeight = $pageContent.height();
+        // var footerHeight = $pageFooter.height();
+        // var menuHeight = $siteMenu.height();
+        // var signupHeight = $newsSignup.height();
+
+        if (windowHeight < documentHeight) {
+          $pageFooter.css({
+            'position': 'static',
+            'width': 'auto',
+            'bottom': 'auto'
+          });
+          $sectionFooter.css({
+            'position': 'relative',
+            'width': 'auto',
+            'bottom': 'auto'
+          });
+          $newsletterSignup.css({
+            'position': 'relative',
+            'width': 'auto',
+            'bottom': 'auto'
+          });
+          $('#page-content').css({
+            'padding-bottom': '0'
+          });
         } else {
-          $pageFooter.css({'position': 'fixed', 'width': '100%', 'bottom': '0'});
-          $sectionFooter.css({'position': 'fixed', 'width': '100%', 'bottom': $pageFooter.outerHeight() + 'px'});
-          $('#page-content').css({'padding-bottom': $pageFooter.outerHeight() + $sectionFooter.outerHeight() + 'px'});
+          $pageFooter.css({
+            'position': 'fixed',
+            'width': '100%',
+            'bottom': '0'
+          });
+          $newsletterSignup.css({
+            'position': 'fixed',
+            'width': '100%',
+            'bottom': $pageFooter.outerHeight() + 'px'
+          });
+          $sectionFooter.css({
+            'position': 'fixed',
+            'width': '100%',
+            'bottom': $pageFooter.outerHeight() + $newsletterSignup.outerHeight() + 'px'
+          });
+          $('#page-content').css({
+            'padding-bottom': $pageFooter.outerHeight() + $newsletterSignup.outerHeight() + $sectionFooter.outerHeight() + 'px'
+          });
         }
       }, 250);
     }
 
+    // Initialise sticky footer
     stickyFooter();
-    $(window).on('resize', stickyFooter);
+
+    $('#dupe').on('click', function () {
+      $('main article').append('<p class="added">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>');
+      console.log('Added element: ', $('.added').last())
+      console.log($('.added'));
+    })
+
+    $('#dedupe').on('click', function () {
+      console.log('Removing element: ', $('.added').last())
+      $('.added').last().remove();
+      console.log($('.added'));
+    })
+
+    var listenerFn = function () {
+      console.log('DOM changed')
+      stickyFooter();
+    };
+    $('#page-content').mutationObserver(listenerFn);
+
+    // $('#page-content').onCreate('*', function () {
+    //   console.log('DOM changed');
+    //   stickyFooter();
+    // }, true);
+
+    // Check for window resize
+    $(window).on('resize', stickyFooter());
   });
 
   // ---------------------------------------------------------------------------
   // Handle JQuery UI Slider as numeric value
   // ---------------------------------------------------------------------------
   var $slider = $('.number-slider').slider({
-    create: function(event, ui) {
+    create: function (event, ui) {
       var $this = $(this);
       var $input = $this.find('input');
       var min = $input.data('min');
@@ -157,12 +225,15 @@ jQuery.noConflict();
 
       $this
         .find('.number-slider_labels')
-        .css({marginLeft: labelMargin, marginRight: labelMargin});
+        .css({
+          marginLeft: labelMargin,
+          marginRight: labelMargin
+        });
       $this
         .find('.number-slider_label')
         .width(labelWidth);
     },
-    slide: function(event, ui) {
+    slide: function (event, ui) {
       var $this = $(this);
       var $input = $this.find('input');
       var $fill = $this.find('.number-slider_fill');
@@ -188,7 +259,7 @@ jQuery.noConflict();
   // Handle JQuery UI Slider as option list
   // ---------------------------------------------------------------------------
   var $slider = $('.select-slider').slider({
-    create: function(event, ui) {
+    create: function (event, ui) {
       var $this = $(this);
       var $select = $this.find('select');
 
@@ -207,12 +278,15 @@ jQuery.noConflict();
 
       $this
         .find('.select-slider_values')
-        .css({marginLeft: margin, marginRight: margin});
+        .css({
+          marginLeft: margin,
+          marginRight: margin
+        });
       $this
         .find('.select-slider_value')
         .width(width);
     },
-    slide: function(event, ui) {
+    slide: function (event, ui) {
       var $this = $(this);
       var $select = $this.find('select');
 
@@ -231,7 +305,7 @@ jQuery.noConflict();
   });
 
   $('.select-slider').find('select')
-    .on('change', function() {
+    .on('change', function () {
       $slider.slider('value', this.selectedIndex);
     });
 
@@ -250,14 +324,14 @@ jQuery.noConflict();
     nextText: '>>',
 
     // Force validation when datepicker date is selected
-    onSelect: function(date) {
+    onSelect: function (date) {
       console.log('This is: ' + $(this).attr('name'));
       $(this).change();
       $(this).attr('placeholder', '');
 
       // Force form validation
       checkIfValid();
-   },
+    },
   });
 
 
@@ -266,13 +340,13 @@ jQuery.noConflict();
   // ---------------------------------------------------------------------------
   $('#page-header')
     .find('.user-info_name, .user-info_profile')
-    .on( 'click', function() {
+    .on('click', function () {
       $('#user-status').show();
     });
 
   $('#user-status')
     .find('.user-status_close')
-    .on( 'click', function() {
+    .on('click', function () {
       $('#user-status').hide();
     });
 
@@ -293,92 +367,92 @@ jQuery.noConflict();
   $('.popup-wrapper').hide();
   // ---------------------------------------------------------------------------
   $('#my-data-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#my-data').popup('show');
     });
   $('#my-data-close')
-    .on('click', function() {
+    .on('click', function () {
       $('#my-data').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#why-important-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#why-important').popup('show');
     });
   $('#why-important-close')
-    .on('click', function() {
+    .on('click', function () {
       $('#why-important').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#what-is-dementia-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#what-is-dementia').popup('show');
     });
   $('#what-is-dementia-close')
-    .on('click', function() {
+    .on('click', function () {
       $('#what-is-dementia').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#why-exercise-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#why-exercise').popup('show');
     });
   $('#why-exercise-close')
-    .on('click', function() {
+    .on('click', function () {
       $('#why-exercise').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#ill-health-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#ill-health').popup('show');
     });
   $('#ill-health-close')
-    .on('click', function() {
+    .on('click', function () {
       $('#ill-health').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#ipaq-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#ipaq').popup('show');
     });
   $('#ipaq-close')
-    .on('click', function() {
+    .on('click', function () {
       $('#ipaq').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#exit-home-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#exit-home').popup('show');
     });
   $('#exit-home-close, #exit-home-close-button')
-    .on('click', function() {
+    .on('click', function () {
       $('#exit-home').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#exit-measures-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#exit-measures').popup('show');
     });
   $('#exit-measures-close, #exit-measures-close-button')
-    .on('click', function() {
+    .on('click', function () {
       $('#exit-measures').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#exit-dashboard-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#exit-dashboard').popup('show');
     });
   $('#exit-dashboard-close, #exit-dashboard-close-button')
-    .on('click', function() {
+    .on('click', function () {
       $('#exit-dashboard').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#contact-form-open')
-    .on('click', function() {
+    .on('click', function () {
       $('#contact-form').popup('show');
     });
   $('#contact-form-close, #exit-dashboard-close-button')
-    .on('click', function() {
+    .on('click', function () {
       $('#contact-form').popup('hide');
     });
 
@@ -386,24 +460,24 @@ jQuery.noConflict();
   // Handle psotcode lookup results - assumes last 2 array elements are town
   // and postcode and there are no more than 3 other address fields.
   // ---------------------------------------------------------------------------
-  $('#mhq-form').find('#address-list').on('change', function() {
+  $('#mhq-form').find('#address-list').on('change', function () {
     var address = $(this).val().split(',');
 
     $('#mhq-form').find('input[type=text]').val('');
-    for (var i = 0; i <= Math.min(address.length-3, 2); i++) {
-      $('#mhq-form').find('#address-' + (i+1)).val(address[i]);
+    for (var i = 0; i <= Math.min(address.length - 3, 2); i++) {
+      $('#mhq-form').find('#address-' + (i + 1)).val(address[i]);
     }
-    $('#mhq-form').find('#town').val(address[address.length-2]);
-    $('#mhq-form').find('#postcode').val(address[address.length-1]);
+    $('#mhq-form').find('#town').val(address[address.length - 2]);
+    $('#mhq-form').find('#postcode').val(address[address.length - 1]);
   });
 
   // -------------------------------------------------------------------------
   // Initialise timer icons
   // -------------------------------------------------------------------------
-  var initTimerIcons = function(selector) {
+  var initTimerIcons = function (selector) {
     var icons = selector || '.timer-icon';
 
-    $(icons).each(function(i) {
+    $(icons).each(function (i) {
       $(this).attr('id', 'timer-icon-' + i);
     });
   };
@@ -411,10 +485,10 @@ jQuery.noConflict();
   // -------------------------------------------------------------------------
   // Draw timer icons
   // -------------------------------------------------------------------------
-  var drawTimerIcons = function(selector) {
+  var drawTimerIcons = function (selector) {
     var icons = selector || '.timer-icon';
 
-    $(icons).each(function() {
+    $(icons).each(function () {
       var stageID = $(this).attr('id');
       var minutes = $(this).attr('data-duration') || 0;
       var stage = acgraph.create(stageID);
@@ -432,18 +506,24 @@ jQuery.noConflict();
       var px = cx;
       var py = cy;
 
-      stage.circle(cx, cy, cr).stroke({color: color, thickness: strokeWidth});
-      stage.path().moveTo(px, py).lineTo(px, py - pr).arcTo(pr, pr, 270, pa).lineTo(px, py).close().stroke({color: color, thickness: 1}).fill(color);
+      stage.circle(cx, cy, cr).stroke({
+        color: color,
+        thickness: strokeWidth
+      });
+      stage.path().moveTo(px, py).lineTo(px, py - pr).arcTo(pr, pr, 270, pa).lineTo(px, py).close().stroke({
+        color: color,
+        thickness: 1
+      }).fill(color);
     });
   };
 
   // -------------------------------------------------------------------------
   // Calculate total session times
   // -------------------------------------------------------------------------
-  var sessionTotal = function() {
+  var sessionTotal = function () {
     var total = 0;
 
-    $('#session-select').find('input:checked').each(function() {
+    $('#session-select').find('input:checked').each(function () {
       total = total + parseInt($(this).parent('.form-field').find('.timer-icon').attr('data-duration'));
     });
 
@@ -457,13 +537,13 @@ jQuery.noConflict();
   var id = $sessionTotal.find('.timer-icon').attr('id');
   var total = sessionTotal();
   initTimerIcons('.timer-icon');
-  $sessionTotal.html(total +' mins <span id="' + id + '" class="timer-icon" data-duration="' + total + '" data-color=' + '"#1aab98"></span>');
+  $sessionTotal.html(total + ' mins <span id="' + id + '" class="timer-icon" data-duration="' + total + '" data-color=' + '"#1aab98"></span>');
   drawTimerIcons('.timer-icon');
 
   // -------------------------------------------------------------------------
   // Update icons and session total on change
   // -------------------------------------------------------------------------
-  $('#session-select').find('input[type=checkbox]').on('change', function() {
+  $('#session-select').find('input[type=checkbox]').on('change', function () {
     var $this = $(this);
     var $timer = $(this).parent('.form-field').find('.timer-icon');
     var $circle = $timer.find('circle');
@@ -481,19 +561,19 @@ jQuery.noConflict();
     }
 
     total = sessionTotal();
-    $sessionTotal.html(total +' mins <span id="' + id + '" class="timer-icon" data-duration="' + total + '" data-color=' + '"#1aab98"></span>');
+    $sessionTotal.html(total + ' mins <span id="' + id + '" class="timer-icon" data-duration="' + total + '" data-color=' + '"#1aab98"></span>');
     drawTimerIcons('#session-total .timer-icon');
   });
 
   // -------------------------------------------------------------------------
   // Handle home page accordions
   // -------------------------------------------------------------------------
-  $('.accordion_button').on('click', function() {
+  $('.accordion_button').on('click', function () {
     var $button = $(this);
     var $heading = $button.parent().find('.accordion_header');
     var $content = $button.parent().find('.accordion_content');
 
-    $content.toggle('fast', function() {
+    $content.toggle('fast', function () {
       if ($content.is(':hidden')) {
         $button.find('button').removeClass('secondary').text('+');
         $heading.css('font-weight', '400');
@@ -509,7 +589,7 @@ jQuery.noConflict();
   // -------------------------------------------------------------------------
   var $videoFrames = $('#video-frame');
 
-  $videoFrames.each(function(i) {
+  $videoFrames.each(function (i) {
     var $videoFrame = $(this);
     var url = $videoFrame.attr('src');
     var players = /www.youtube.com|player.vimeo.com/;
@@ -537,10 +617,10 @@ jQuery.noConflict();
     }
   });
 
-  $('.video-start').click(function() {
+  $('.video-start').click(function () {
     var $videoFrame = $('#video-frame');
 
-    $videoFrame.attr('src', $videoFrame.attr('src')+'?autoplay=1');
+    $videoFrame.attr('src', $videoFrame.attr('src') + '?autoplay=1');
     $(this).hide();
   });
 })(jQuery);

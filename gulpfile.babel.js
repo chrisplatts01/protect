@@ -32,7 +32,9 @@ import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import {output as pagespeed} from 'psi';
+import {
+  output as pagespeed
+} from 'psi';
 import pkg from './package.json';
 
 var cp = require('child_process');
@@ -43,28 +45,30 @@ const reload = browserSync.reload;
 // Lint JavaScript
 gulp.task('lint', () =>
   gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**', '!node_modules/**', '!app/scripts/wsk.js', '!app/scripts/sw/runtime-caching.js'])
-    .pipe($.eslint())
-    .pipe($.eslint.format())
-    .pipe($.if(!browserSync.active, $.eslint.failAfterError()))
+  .pipe($.eslint())
+  .pipe($.eslint.format())
+  .pipe($.if(!browserSync.active, $.eslint.failAfterError()))
 );
 
 // Optimize images
 gulp.task('images', () =>
   gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe(gulp.dest('dist/images'))
-    .pipe($.size({title: 'images'}))
+  .pipe($.cache($.imagemin({
+    progressive: true,
+    interlaced: true
+  })))
+  .pipe(gulp.dest('dist/images'))
+  .pipe($.size({
+    title: 'images'
+  }))
 );
 
-gulp.task('nunjucks', function() {
+gulp.task('nunjucks', function () {
   return gulp.src('app/pages/**/*.+(njk|nunjucks|html)')
-  .pipe(nunjucksRender({
+    .pipe(nunjucksRender({
       path: ['app/templates']
     }))
-  .pipe(gulp.dest('.tmp'))
+    .pipe(gulp.dest('.tmp'))
 });
 
 // Copy all files at the root level (app)
@@ -78,7 +82,9 @@ gulp.task('copy', () =>
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
-    .pipe($.size({title: 'copy'}))
+  .pipe($.size({
+    title: 'copy'
+  }))
 );
 
 // Compile and automatically prefix stylesheets
@@ -97,9 +103,9 @@ gulp.task('styles', () => {
 
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'app/styles/**/*.scss',
-    'app/styles/**/*.css'
-  ])
+      'app/styles/**/*.scss',
+      'app/styles/**/*.css'
+    ])
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -109,7 +115,9 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('.tmp/styles'))
     // Concatenate and minify styles
     // .pipe($.if('*.css', $.cssnano()))
-    .pipe($.size({title: 'styles'}))
+    .pipe($.size({
+      title: 'styles'
+    }))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('dist/styles'))
     .pipe(gulp.dest('.tmp/styles'));
@@ -119,34 +127,36 @@ gulp.task('styles', () => {
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
 gulp.task('scripts', () =>
-    gulp.src([
-      // Note: Since we are not using useref in the scripts build pipeline,
-      //       you need to explicitly list your scripts here in the right order
-      //       to be correctly concatenated
-      './app/scripts/wsk.js',
-      './app/scripts/main.js'
-    ])
-      .pipe($.newer('.tmp/scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min.js'))
-      // .pipe($.uglify())
-      // Output files
-      .pipe($.size({title: 'scripts'}))
-      .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('dist/scripts'))
-      .pipe(gulp.dest('.tmp/scripts'))
+  gulp.src([
+    // Note: Since we are not using useref in the scripts build pipeline,
+    //       you need to explicitly list your scripts here in the right order
+    //       to be correctly concatenated
+    './app/scripts/wsk.js',
+    './app/scripts/main.js'
+  ])
+  .pipe($.newer('.tmp/scripts'))
+  .pipe($.sourcemaps.init())
+  .pipe($.babel())
+  .pipe($.sourcemaps.write())
+  .pipe(gulp.dest('.tmp/scripts'))
+  .pipe($.concat('main.min.js'))
+  // .pipe($.uglify())
+  // Output files
+  .pipe($.size({
+    title: 'scripts'
+  }))
+  .pipe($.sourcemaps.write('.'))
+  .pipe(gulp.dest('dist/scripts'))
+  .pipe(gulp.dest('.tmp/scripts'))
 );
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', () => {
   return gulp.src([
-    'app/**/*.html',
-    '!app/styles/**/*.html',
-    '.tmp/**/*.html'
-  ])
+      'app/**/*.html',
+      '!app/styles/**/*.html',
+      '.tmp/**/*.html'
+    ])
     .pipe($.useref({
       searchPath: '{.tmp, app}',
       noAssets: true
@@ -165,7 +175,10 @@ gulp.task('html', () => {
     //   removeOptionalTags: true
     // })))
     // Output files
-    .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
+    .pipe($.if('*.html', $.size({
+      title: 'html',
+      showFiles: true
+    })))
     .pipe(gulp.dest('dist'));
 });
 
@@ -177,7 +190,9 @@ gulp.task('copy-vendor-scripts', () => {
 });
 
 // Clean output directory
-gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
+gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {
+  dot: true
+}));
 
 // Watch files for changes & reload
 gulp.task('serve', ['nunjucks', 'scripts', 'styles'], () => {
@@ -223,7 +238,7 @@ gulp.task('default', ['clean'], cb =>
   runSequence(
     'nunjucks',
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy', 'copy-vendor-scripts'],
+    ['html', 'scripts', 'images', 'copy', 'copy-vendor-scripts'],
     'generate-service-worker',
     cb
   )
