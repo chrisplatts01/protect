@@ -123,11 +123,6 @@ jQuery.noConflict();
 
         var windowHeight = $(window).height();
         var documentHeight = $(document).height();
-        // var headerHeight = $pageHeader.height();
-        // var contentHeight = $pageContent.height();
-        // var footerHeight = $pageFooter.height();
-        // var menuHeight = $siteMenu.height();
-        // var signupHeight = $newsSignup.height();
 
         if (windowHeight < documentHeight) {
           $pageFooter.css({
@@ -174,28 +169,23 @@ jQuery.noConflict();
     // Initialise sticky footer
     stickyFooter();
 
+    // Test DOM mutation by adding/removing nodes.
     $('#dupe').on('click', function () {
       $('main article').append('<p class="added">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>');
       console.log('Added element: ', $('.added').last())
-      console.log($('.added'));
     })
 
     $('#dedupe').on('click', function () {
       console.log('Removing element: ', $('.added').last())
       $('.added').last().remove();
-      console.log($('.added'));
     })
 
+    // JQuery mutation detection
     var listenerFn = function () {
       console.log('DOM changed')
       stickyFooter();
     };
     $('#page-content').mutationObserver(listenerFn);
-
-    // $('#page-content').onCreate('*', function () {
-    //   console.log('DOM changed');
-    //   stickyFooter();
-    // }, true);
 
     // Check for window resize
     $(window).on('resize', stickyFooter());
