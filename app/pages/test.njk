@@ -8,21 +8,12 @@
 {% block content %}
 <section class="panel panel--progress">
   <article>
-    <h1>Testing...</h1>
-
-    <h2>Form macro</h2>
-    <div>
-      {% call form.form("mhq-form", "#", "#") %}
-        {#
-        {{ form.text('test-field-required', 'Test required field', required=true) }}
-        {{ form.text('test-field-optional', 'Test optional field') }}
-        {{ form.yesno('test-yn', 'Testing yes/no fields', required=true) }}
-        {{ form.checkboxes('test-values', 'Test values', ['Value 1', 'Value 2', 'Value 3', 'Value 4', 'Value 5', 'Value 6'], required=true, validation="data-rule-mincheck=2 data-rule-maxcheck=2") }}
-        #}
-        {{ form.text2("", name1="text-1", label1="Text 1", name2="text-2", label2="Text 2", validation="") }}
-        {{ form.checkbox("checkbox-1", "checkbox-1", "Checkbox", "Checkbox", validation="") }}
-      {% endcall %}
-    </div>
+    <!-- button id="dupe">Duplicate!</button>
+    <button id="dedupe">Deduplicate!</button -->
+    <p class="xxx"><a id="dupe" href="#">[ADD CONTENT]</a> <a id="dedupe" href="#">[REMOVE CONTENT]</a></p>
   </article>
+  <footer style="position: relative; width: auto; bottom: auto;">
+    <div class="footer-info wrapper"><a id="exit-home-open" class="modal-open" href="#exit-home">Exit assessment and return to home page</a></div>
+  </footer>
 </section>
 {% endblock %}

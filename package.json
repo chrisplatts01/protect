@@ -56,6 +56,8 @@
     "foundation-sites": "^6.4.1",
     "jquery": "^3.2.1",
     "jquery-form-validator": "^2.3.73",
+    "jquery-observe": "^0.2.3",
+    "jquery-onmutate": "^1.4.2",
     "jquery-validation": "^1.17.0",
     "nunjucks-includeData": "^0.0.9",
     "webfontloader": "^1.6.28"
