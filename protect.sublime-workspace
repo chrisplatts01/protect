@@ -459,14 +459,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "protect.sublime-project",
-			"settings":
-			{
-				"buffer_size": 45,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -479,6 +471,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"settings",
+				"Preferences: Settings"
+			],
+			[
+				"eslint",
+				"Preferences: SublimeLinter Settings – Default"
+			],
 			[
 				"term",
 				"Terminal: Open"
@@ -550,10 +550,29 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/chris/Sites/Development/protect.virelai.co.uk"
+		"/Users/chris/Sites/Development/protect.virelai.co.uk",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/pages",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/scripts",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/styles",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/templates",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/templates/includes",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/templates/layouts"
 	],
 	"file_history":
 	[
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/scripts/main.js",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/styles/main.scss",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/.gitignore",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/pages/test.njk",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/templates/layouts/layout.njk",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/templates/includes/page-header.njk",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/app/templates/includes/page-footer.njk",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/package.json",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/.eslintrc.js",
+		"/Users/chris/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/chris/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/chris/Sites/Development/protect.virelai.co.uk/protect.sublime-project",
 		"/Users/chris/Sites/Development/virelai.co.uk/css/main.css",
 		"/Users/chris/Sites/Development/virelai.co.uk/index.html",
 		"/Users/chris/Sites/Development/connected-dementia-research/app/pages/pattern-library/file-upload.njk",
@@ -669,19 +688,7 @@
 		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-chicken-and-butternut-squash-tagine.html",
 		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-chicken-casserole.html",
 		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-chicken-roast-vegetables.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-chicken-rogan-josh.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-christmas-cake.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-christmas-pudding-muffins.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-christmas-pudding.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-commuter-breakfast-cake.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-creamy-chicken-butternut-and-haricot-curry.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-date-and-coconut-loaf.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-easy-as-ginger-ice-cream.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-easy-oaty-pancakes.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-fat-free-fruit-loaf.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-fitfish-chocolate.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-ginger-lemon-coconut-salmon.html",
-		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-great-veggie-chilli.html"
+		"/Users/chris/Sites/Production/fit-fish.co.uk/nutrition/recipes/recipe-chicken-rogan-josh.html"
 	],
 	"find":
 	{
@@ -716,139 +723,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "protect.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 45,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": true,
-							"auto_complete_triggers":
-							[
-								{
-									"characters": "<",
-									"selector": "text.html"
-								},
-								{
-									"characters": ".#",
-									"selector": "text.html"
-								}
-							],
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										43,
-										44
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										0,
-										1
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
