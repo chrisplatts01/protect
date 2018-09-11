@@ -105,91 +105,96 @@ jQuery.noConflict();
   // ---------------------------------------------------------------------------
   // Handle sticky footer
   // ---------------------------------------------------------------------------
-  var resizeTimer;
+  // var resizeTimer;
 
-  $(window).bind('load', function () {
-    /**
-     * Set sticky footer status
-     */
-    function stickyFooter() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function () {
-        var $pageHeader = $('#page-header');
-        var $siteMenu = $('#site-menu')
-        var $pageContent = $('#page-content');
-        var $pageFooter = $('#page-footer');
-        var $newsletterSignup = $('#newsletter-signup')
-        var $sectionFooter = $pageContent.find('footer');
+  // $(window).bind('load', function () {
+  //   /**
+  //    * Set sticky footer status
+  //    */
+  //   function stickyFooter() {
+  //     clearTimeout(resizeTimer);
+  //     resizeTimer = setTimeout(function () {
+  //       // var $pageHeader = $('#page-header');
+  //       // var $siteMenu = $('#site-menu');
+  //       var $pageContent = $('#page-content');
+  //       var $pageFooter = $('#page-footer');
+  //       var $newsletterSignup = $('#newsletter-signup');
+  //       var $sectionFooter = $pageContent.find('footer');
 
-        var windowHeight = $(window).height();
-        var documentHeight = $(document).height();
+  //       var windowHeight = $(window).height();
+  //       var documentHeight = $(document).height();
 
-        if (windowHeight < documentHeight) {
-          $pageFooter.css({
-            'position': 'static',
-            'width': 'auto',
-            'bottom': 'auto'
-          });
-          $sectionFooter.css({
-            'position': 'relative',
-            'width': 'auto',
-            'bottom': 'auto'
-          });
-          $newsletterSignup.css({
-            'position': 'relative',
-            'width': 'auto',
-            'bottom': 'auto'
-          });
-          $('#page-content').css({
-            'padding-bottom': '0'
-          });
-        } else {
-          $pageFooter.css({
-            'position': 'fixed',
-            'width': '100%',
-            'bottom': '0'
-          });
-          $newsletterSignup.css({
-            'position': 'fixed',
-            'width': '100%',
-            'bottom': $pageFooter.outerHeight() + 'px'
-          });
-          $sectionFooter.css({
-            'position': 'fixed',
-            'width': '100%',
-            'bottom': $pageFooter.outerHeight() + $newsletterSignup.outerHeight() + 'px'
-          });
-          $('#page-content').css({
-            'padding-bottom': $pageFooter.outerHeight() + $newsletterSignup.outerHeight() + $sectionFooter.outerHeight() + 'px'
-          });
-        }
-      }, 250);
-    }
+  //       if (windowHeight < documentHeight) {
+  //         $pageFooter.css({
+  //           'position': 'static',
+  //           'width': 'auto',
+  //           'bottom': 'auto',
+  //         });
+  //         $sectionFooter.css({
+  //           'position': 'relative',
+  //           'width': 'auto',
+  //           'bottom': 'auto',
+  //         });
+  //         $newsletterSignup.css({
+  //           'position': 'relative',
+  //           'width': 'auto',
+  //           'bottom': 'auto',
+  //         });
+  //         $('#page-content').css({
+  //           'padding-bottom': '0',
+  //         });
+  //       } else {
+  //         $pageFooter.css({
+  //           'position': 'fixed',
+  //           'width': '100%',
+  //           'bottom': '0',
+  //         });
+  //         $newsletterSignup.css({
+  //           'position': 'fixed',
+  //           'width': '100%',
+  //           'bottom': $pageFooter.outerHeight() + 'px',
+  //         });
+  //         $sectionFooter.css({
+  //           'position': 'fixed',
+  //           'width': '100%',
+  //           'bottom': $pageFooter.outerHeight()
+  //             + $newsletterSignup.outerHeight()
+  //             + 'px',
+  //         });
+  //         $('#page-content').css({
+  //           'padding-bottom': $pageFooter.outerHeight()
+  //             + $newsletterSignup.outerHeight()
+  //             + $sectionFooter.outerHeight()
+  //             + 'px',
+  //         });
+  //       }
+  //     }, 250);
+  //   }
 
-    // Initialise sticky footer
-    stickyFooter();
+  //   // Initialise sticky footer
+  //  stickyFooter();
 
     // Test DOM mutation by adding/removing nodes.
     $('#dupe').on('click', function () {
       $('main article').append('<p class="added">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>');
-      console.log('Added element: ', $('.added').last())
-    })
+      console.log('Added element: ', $('.added').last());
+    });
 
     $('#dedupe').on('click', function () {
-      console.log('Removing element: ', $('.added').last())
+      console.log('Removing element: ', $('.added').last());
       $('.added').last().remove();
-    })
+    });
 
-    // JQuery mutation detection
-    var listenerFn = function () {
-      console.log('DOM changed')
-      stickyFooter();
-    };
-    $('#page-content').mutationObserver(listenerFn);
+  //   // JQuery mutation detection
+  //   var listenerFn = function () {
+  //     console.log('DOM changed')
+  //     stickyFooter();
+  //   };
+  //   $('#page-content').mutationObserver(listenerFn);
 
-    // Check for window resize
-    $(window).on('resize', stickyFooter());
-  });
+  //   // Check for window resize
+  //  $(window).on('resize', stickyFooter());
+  // });
 
   // ---------------------------------------------------------------------------
   // Handle JQuery UI Slider as numeric value
@@ -217,7 +222,7 @@ jQuery.noConflict();
         .find('.number-slider_labels')
         .css({
           marginLeft: labelMargin,
-          marginRight: labelMargin
+          marginRight: labelMargin,
         });
       $this
         .find('.number-slider_label')
@@ -270,7 +275,7 @@ jQuery.noConflict();
         .find('.select-slider_values')
         .css({
           marginLeft: margin,
-          marginRight: margin
+          marginRight: margin,
         });
       $this
         .find('.select-slider_value')
@@ -498,11 +503,11 @@ jQuery.noConflict();
 
       stage.circle(cx, cy, cr).stroke({
         color: color,
-        thickness: strokeWidth
+        thickness: strokeWidth,
       });
       stage.path().moveTo(px, py).lineTo(px, py - pr).arcTo(pr, pr, 270, pa).lineTo(px, py).close().stroke({
         color: color,
-        thickness: 1
+        thickness: 1,
       }).fill(color);
     });
   };
@@ -514,7 +519,9 @@ jQuery.noConflict();
     var total = 0;
 
     $('#session-select').find('input:checked').each(function () {
-      total = total + parseInt($(this).parent('.form-field').find('.timer-icon').attr('data-duration'));
+      total = total + parseInt($(this).parent('.form-field')
+                               .find('.timer-icon')
+                               .attr('data-duration'));
     });
 
     return total;
@@ -527,7 +534,11 @@ jQuery.noConflict();
   var id = $sessionTotal.find('.timer-icon').attr('id');
   var total = sessionTotal();
   initTimerIcons('.timer-icon');
-  $sessionTotal.html(total + ' mins <span id="' + id + '" class="timer-icon" data-duration="' + total + '" data-color=' + '"#1aab98"></span>');
+  $sessionTotal.html(total + ' mins <span id="'
+                     + id
+                     + '" class="timer-icon" data-duration="'
+                     + total
+                     + '" data-color=' + '"#1aab98"></span>');
   drawTimerIcons('.timer-icon');
 
   // -------------------------------------------------------------------------
@@ -551,7 +562,13 @@ jQuery.noConflict();
     }
 
     total = sessionTotal();
-    $sessionTotal.html(total + ' mins <span id="' + id + '" class="timer-icon" data-duration="' + total + '" data-color=' + '"#1aab98"></span>');
+    $sessionTotal.html(total
+                       + ' mins <span id="'
+                       + id
+                       + '" class="timer-icon" data-duration="'
+                       + total
+                       + '" data-color=' +
+                        '"#1aab98"></span>');
     drawTimerIcons('#session-total .timer-icon');
   });
 

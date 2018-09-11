@@ -41,12 +41,14 @@
   "eslintConfig": {
     "extends": "google",
     "rules": {
-      "no-var": 1,
-      "max-len": [
-        1,
-        80,
-        2
-      ]
+      "no-var": 0,
+      "max-len": [1, 120, 2],
+      "space-before-function-paren": ["error", {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }],
+      "no-unused-vars": 1
     }
   },
   "dependencies": {

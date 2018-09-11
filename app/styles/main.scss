@@ -287,9 +287,17 @@
   }
 }
 
-.maincontainer {
+.page-wrapper {
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
+}
+
+.page-content section {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+
 }
