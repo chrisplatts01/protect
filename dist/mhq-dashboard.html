@@ -1,0 +1,411 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROTECT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <script src="/scripts/google/webfontloader/webfontloader.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Lato:300,400,400i,500,500i,700,700i:latin']
+      }
+    });
+  </script>
+
+  <link rel="stylesheet" href="/styles/vendor/jquery/jquery-ui.min.css">
+  <link rel="stylesheet" href="/styles/vendor/jquerysvg/jquery.svg.css">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script src="/scripts/jquery/jquery-3.2.1.js"></script>
+  <script src="/scripts/jquery/jquery-ui.js"></script>
+  <script src="/scripts/furf/jquery.ui.touch-punch.js"></script>
+  <script src="/scripts/vast/jquery.popupoverlay.js"></script>
+  <script src="/scripts/svgdotjs/svg.js"></script>
+  <!-- script src="/scripts/jquery-observe/jquery-observe.js"></script -->
+  <!-- script src="/scripts/jquery-onmutate/jquery.onmutate.js"></script -->
+  <script src="/scripts/timbonicus/jquery.mutationobserver.js"></script>
+  <!-- script src="/scripts/dustinboston/jquery.poink.js"></script -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="https://cdn.anychart.com/js/latest/graphics.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+</head>
+
+<body>
+
+<div id="page-wrapper" class="page-wrapper">
+  <div class="outer">
+  <header id="page-header" role="banner">
+    <div class="wrapper">
+      <div class="site-logo"><img src="/images/protect-logo.svg" alt="TRAIN FOR THE BRAIN"></div>
+    </div>
+  </header>
+
+  <nav id="site-menu">
+    <div id="menu-toggle" class="menu-toggle">Menu</div>
+    <div class="menu-content">
+      <div id="site-security" class="site-security">
+        <div class="wrapper">
+          <a class="login" href="#">Login</a>
+          <a href="#" class="sign-up button button--grey">Sign up</a>
+        </div>
+      </div>
+      <div id="site-navigation" class="site-navigation">
+        <div class="wrapper">
+          <ul>
+            <li><a href="#">Who can sign up</a></li>
+            <li><a href="#">Our Data Promise</a></li>
+            <li><a href="#">The PROTECT Team</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+  <main id="page-content" class="page-content" role="main">
+    
+  <section class="panel panel--dashboard">
+
+    <header>
+      <div class="=section-title">
+        <div class="wrapper">
+          <h1>My progress</h1>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tab-nav">
+      <div class="wrapper">
+        
+        <ul>
+          <li>Questionnaires</li>
+          <li>Cognitive tests</li>
+          <li>Brain training</li>
+        </ul>
+      </div>
+    </nav>
+
+    <article id="tab-questionnaires" class="tab-content">
+      <ol class="progress-bar progress-bar--questionnaires">
+        <li class="is-completed">1</li>
+        <li class="is-inprogress">2</li>
+        <li class="is-paused">3</li>
+        <li class="is-completed">4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+      </ol>
+
+      <section class="subsection subsection--lifestyle is-completed">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Section 1: Lifestyle questions</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--lifestyle is-inprogress">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Section 2: Lifestyle questions</h2>
+          <p>In progess etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin session</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--medical is-paused">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Section 3: Medical questions</h2>
+          <p>Completed etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next tertiary" href="#">Continue session</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--health is-completed">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Section 4: Medical health questions</h2>
+          <p>In progress etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--medical">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Section 5: Medical questions</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--lifestyle">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Section 6: Lifestyle questions</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--medical">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Section 7: Medical questions</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+    </article>
+
+    <article id="tab-cognitive-tests" class="tab-content">
+      <ol class="progress-bar progress-bar--cognitive-tests">
+        <li class="is-completed">1</li>
+        <li>2</li>
+        <li>3</li>
+      </ol>
+      <p class="centred">All three rounds of cognitive tests must be completed within seven days.</p>
+      <p class="centred"><b>X days remaining to complete tests.</b></p>
+      <div class="centred"><a class="button button--next" href="#">Begin session</a></div>
+      <hr>
+
+      <section class="subsection subsection--digital-span">
+        <div class="subsection_icon"><img class="mini-progress" src="/images/mini-progress-1.svg"></div>
+        <div class="subsection_content">
+          <h2>Digital span</h2>
+          <p>Atiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--paired-associates">
+        <div class="subsection_icon"><img class="mini-progress" src="/images/mini-progress-1.svg"></div>
+        <div class="subsection_content">
+          <h2>Paired Associates Learning</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--self-ordered-search">
+        <div class="subsection_icon"><img class="mini-progress" src="/images/mini-progress-1.svg"></div>
+        <div class="subsection_content">
+          <h2>Self Ordered Search</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+
+      <section class="subsection subsection--verbal-reasoning">
+        <div class="subsection_icon"><img class="mini-progress" src="/images/mini-progress-1.svg"></div>
+        <div class="subsection_content">
+          <h2>Verbal Reasoning</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+      </section>
+    </article>
+
+    <article id="tab-brain-training" class="tab-content">
+      <section class="subsection subsection--balloons is-completed">
+        <div class="subsection_icon">00</div>
+        <div class="subsection_content">
+          <h2>Balloons</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Continue training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--crates">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Crates</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--loop-the-loop">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Loop the Loop</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--numbers">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Numbers</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--object-matching">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Object Matching</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--odd-one-out">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Odd One Out</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--pairs">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Pairs</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--pictures">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Pictures</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--scanner">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Scanner</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--see-saw">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>See-saw</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--sliders">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Sliders</h2>
+          <p>Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+
+      <section class="subsection subsection--tower-of-london">
+        <div class="subsection_icon"></div>
+        <div class="subsection_content">
+          <h2>Tower of London</h2>
+          <p>Completed tiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <a class="button button--next" href="#">Begin training</a>
+        </div>
+      </section>
+    </article>
+  </section>
+
+  <script>
+    (function($) {
+      $tabSelect = $('.tab-nav').find('li');
+      $tabContent = $('.tab-content');
+
+      $tabContent.hide();
+      $tabContent.eq(0).show();
+      $tabSelect.eq(0).addClass('selected');
+
+      $tabSelect.on('click', function() {
+        var $this = $(this);
+        var index;
+
+        index = $tabSelect.index($this);
+
+        $tabSelect.removeClass('selected');
+        $this.addClass('selected');
+
+        $tabContent.fadeOut('fast');
+        $tabContent.eq(index).fadeIn('fast');
+      })
+    })(jQuery);
+  </script>
+
+  </main>
+
+  <div class="outer">
+  <section id="newsletter-signup">
+    <div class="wrapper">
+      <form id="newsletter-signup_form" method="post" action="#">
+        <fieldset>
+          <legend class="h1 centred">Sign up to our newsletter</legend>
+          <input id="email-address" name="email-address" type="email" placeholder="Email" required>
+          <button type="submit">Subscribe</button>
+        </fieldset>
+      </form>
+
+    </div>
+  </section>
+
+  <footer id="page-footer" role="contentinfo">
+    <div class="wrapper">
+      <div class="footer-info">
+        <div class="project-logos">
+          <img src="/images/project-logos.png" alt="Exeter University and ????" width="200">
+        </div>
+        <div class="contact-address">
+          <h2>Contact</h2>
+          <h3>Address</h3>
+          <p>PROTECT Study<br>
+            Address  line 1, Address line 2<br>
+            Address line 3, City, ZZ1 23Z</p>
+        </div>
+        <div class="contact-other">
+          <h3>Email</h3>
+          <p><a href="#">admin@protectstudy.org.uk</a></p>
+          <h3>Phone</h3>
+          <p><a href="#">01234 567890</a></p>
+        </div>
+      </div>
+      <nav class="utility-nav">
+        <ol>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Our data policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ol>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+</div>
+
+  <div id="exit-home" class="modal">
+    <a id="exit-home-close" class="modal-close" href="#">Close <img src="/images/white-cross-icon.svg" alt=""></a>
+    <div class="modal-content">
+      <article>
+        <h1>Are you sure you want to exit? All progress will be lost.</h1>
+        <div class="form-actions">
+          <a class="button warning" href="/">Yes, exit</a>
+          <a id="exit-home-close-button" class="button secondary modal-close-button" href="#">No, continue</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+
+<script src="/scripts/main.min.js"></script>
+</body>
+</html>

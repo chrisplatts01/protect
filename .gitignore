@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-dist/
+# dist/
 .tmp
 app.yaml
 /app/scripts/.DS_Store
